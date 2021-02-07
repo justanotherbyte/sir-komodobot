@@ -23,12 +23,12 @@ class Bot(commands.Bot):
 
 async def get_prefix(bot, message):
     try:
-        db = await aiosqlite.connect('/Users/vasan/discord-bot/config.db')
+        db = await aiosqlite.connect('config.db')
         cursor = await db.execute(f'SELECT prefix FROM config WHERE guild_id = {message.guild.id}')
         prefix = await cursor.fetchone()
         return prefix if prefix else "!"
     except:
-        return
+        return '!'
 intents = discord.Intents.all()
 bot = Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents, )
 bot.remove_command('help')
@@ -79,7 +79,7 @@ bot.help_command = MyHelp()
 
 @bot.event
 async def on_guild_join(guild):
-    db = await aiosqlite.connect('/Users/vasan/discord-bot/config.db')
+    db = await aiosqlite.connect('config.db')
     await db.execute(f"insert into config values ({guild.id}, '!', 'enabled', 'enabled', 'enabled' )")
     await db.commit()
 
@@ -98,7 +98,7 @@ async def bold(ctx, *, message):
 
 @bot.command(description='Sets the prefix for Sir KomodoBot to use in your server.')
 async def setprefix(ctx, prefix: str):
-    db = await aiosqlite.connect('/Users/vasan/discord-bot/config.db')
+    db = await aiosqlite.connect('config.db')
     await db.execute(f'update config set prefix = (?) where guild_id = {ctx.guild.id}', (prefix,))
     await db.commit()
 
