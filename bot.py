@@ -54,6 +54,7 @@ async def pixel(ctx, member: discord.Member):
         format="png", static_format="gif", size=1024))
     img = await dagpi.image_process(ImageFeatures.pixel(), url)
     file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+    await ctx.send(file=file)
 
 @bot.event
 async def on_ready():
