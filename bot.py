@@ -1,5 +1,6 @@
 # bot.py
 import os
+from asyncpraw.reddit import Reddit
 from discord.ext import commands, tasks
 import discord
 from discord.ext.commands.cooldowns import BucketType
@@ -11,6 +12,8 @@ import re
 import aiohttp
 import asyncpraw
 import aiosqlite
+from bs4 import BeautifulSoup
+import datetime
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -35,13 +38,13 @@ bot.remove_command('help')
 
 
 
+id = os.getenv('REDDIT_CLIENT_ID')
+secret = os.getenv('REDDIT_CLIENT_SECRET')
 
-async def create_connection():
-    db = await aiosqlite.connect("/Users/vasan/discord-bot/config.db")
 
 message_cooldown = commands.CooldownMapping.from_cooldown(1.0, 3.0, commands.BucketType.user)
 
-reddit = asyncpraw.Reddit(client_id="mK0pAnXLnlJY8g", client_secret="jTyB14j_J6K2JoywPdzbYlsO7JK_1Q", user_agent="Sir Komodo the Great Bot",)
+reddit = asyncpraw.Reddit(client_id=id, client_secret=secret, user_agent="Sir Komodo the Great Bot",)
 
     
 
@@ -401,6 +404,28 @@ async def duck(ctx):
     embed.set_footer(text=res["message"])
     await ctx.send(embed=embed)
 
+@bot.command(help='Posts a random bignate comic', brief='bignate')
+async def bignate(ctx):
+    start_date = datetime.date(1991, 2, 1)
+    end_date = datetime.date(2020, 12, 31)
+    time_between_dates = end_date - start_date
+    days_between_dates = time_between_dates.days
+    random_number_of_days = random.randrange(days_between_dates)
+    random_date = start_date + datetime.timedelta(days=random_number_of_days)
+    date = str(random_date).replace('-', '/')
+    async with aiohttp.ClientSession() as session:
+        async with session.get(f'http://gocomics.com/bignate/{date}') as r:
+            await ctx.trigger_typing()
+            data = await r.text()
+            soup = BeautifulSoup(data, 'html.parser')
+            comic = soup.find('picture', class_='item-comic-image')
+            embed = discord.Embed(
+                title=comic.img['alt'], color=0x0000ff, url=f'http://gocomics.com/bignate/{date}')
+            embed.set_image(url=comic.img['src'])
+            await ctx.send(embed=embed)
+
+
+
 extensions = ['Jokes', 'Utility']
 
 for extension in extensions:
@@ -411,5 +436,5 @@ for extension in extensions:
 
 
 
-asyncio.run(create_connection())
+
 bot.run(TOKEN)
