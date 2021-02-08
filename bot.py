@@ -6,7 +6,6 @@ import discord
 from discord.ext.commands.cooldowns import BucketType
 from dotenv import load_dotenv
 import random
-from discord_slash import SlashCommand, SlashContext
 import asyncio
 import re
 import aiohttp
@@ -14,10 +13,12 @@ import asyncpraw
 import aiosqlite
 from bs4 import BeautifulSoup
 import datetime
+from asyncdagpi import Client, ImageFeatures
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
+dagpi = Client(os.getenv('DAGPI_TOKEN'))
 
 class Bot(commands.Bot):
     def __init__(self, *args, **kwargs):
@@ -46,7 +47,13 @@ message_cooldown = commands.CooldownMapping.from_cooldown(1.0, 3.0, commands.Buc
 
 reddit = asyncpraw.Reddit(client_id=id, client_secret=secret, user_agent="Sir Komodo the Great Bot",)
 
-    
+
+@bot.command()
+async def pixel(ctx, member: discord.Member):
+    url = str(member.avatar_url_as(
+        format="png", static_format="gif", size=1024))
+    img = await dagpi.image_process(ImageFeatures.pixel(), url)
+    file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
 
 @bot.event
 async def on_ready():
@@ -425,14 +432,71 @@ async def bignate(ctx):
             await ctx.send(embed=embed)
 
 
+@bot.command(help="Covid stats. Use world as country to view total stats", aliases=['cv'])
+async def covid(ctx, *, countryName=None):
+        try:
+            if countryName is None:
+                embed = discord.Embed(title=f"This command is used like this: ```{ctx.prefix}covid [country]```", colour=discord.Colour.blurple(
+                ), timestamp=ctx.message.created_at)
+                await ctx.send(embed=embed)
+
+            else:
+                await ctx.trigger_typing()
+                url = f"https://coronavirus-19-api.herokuapp.com/countries/{countryName}"
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(url) as r:         
+                        json_stats = await r.json()
+                        country = json_stats["country"]
+                        totalCases = f'{json_stats["cases"]:,}'
+                        todayCases = f'{json_stats["todayCases"]:,}'
+                        totalDeaths = f'{json_stats["deaths"]:,}'
+                        todayDeaths = f'{json_stats["todayDeaths"]:,}'
+                        recovered = f'{json_stats["recovered"]:,}'
+                        active = f'{json_stats["active"]:,}'
+                        critical = f'{json_stats["critical"]:,}'
+                        casesPerOneMillion = f'{json_stats["casesPerOneMillion"]:,}'
+                        deathsPerOneMillion = f'{json_stats["deathsPerOneMillion"]:,}'
+                        totalTests = f'{json_stats["totalTests"]:,}'
+                        testsPerOneMillion = f'{json_stats["testsPerOneMillion"]:,}'
+
+                        embed2 = discord.Embed(
+                            title=f"**COVID-19 Status Of {country}**!", description="This Information Isn't Live Always, Hence It May Not Be Accurate!", colour=discord.Colour.blurple(), timestamp=ctx.message.created_at)
+                        embed2.add_field(name="**Total Cases**",
+                                        value=totalCases, inline=True)
+                        embed2.add_field(name="**Today Cases**",
+                                        value=todayCases, inline=True)
+                        embed2.add_field(name="**Total Deaths**",
+                                        value=totalDeaths, inline=True)
+                        embed2.add_field(name="**Today Deaths**",
+                                        value=todayDeaths, inline=True)
+                        embed2.add_field(name="**Recovered**",
+                                        value=recovered, inline=True)
+                        embed2.add_field(name="**Active**", value=active, inline=True)
+                        embed2.add_field(name="**Critical**",
+                                        value=critical, inline=True)
+                        embed2.add_field(name="**Cases Per One Million**",
+                                        value=casesPerOneMillion, inline=True)
+                        embed2.add_field(name="**Deaths Per One Million**",
+                                        value=deathsPerOneMillion, inline=True)
+                        embed2.add_field(name="**Total Tests**",
+                                        value=totalTests, inline=True)
+                        embed2.add_field(name="**Tests Per One Million**",
+                                        value=testsPerOneMillion, inline=True)
+
+                        await ctx.send(embed=embed2)
+
+        except:
+            embed3 = discord.Embed(title="Invalid Country Name Or API Error! Try Again..!",
+                                    colour=discord.Colour.blurple(), timestamp=ctx.message.created_at)
+            embed3.set_author(name="Error!")
+            await ctx.send(embed=embed3)
 
 extensions = ['Jokes', 'Utility']
 
 for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")
 
-
-
+bot.load_extension('jishaku')
 
 
 
