@@ -14,7 +14,7 @@ import aiosqlite
 from bs4 import BeautifulSoup
 import datetime
 from asyncdagpi import Client, ImageFeatures
-
+import aiozaneapi
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -51,7 +51,7 @@ reddit = asyncpraw.Reddit(client_id=id, client_secret=secret, user_agent="Sir Ko
 @bot.command()
 async def pixel(ctx, member: discord.Member):
     url = str(member.avatar_url_as(
-        format="png", static_format="gif", size=1024))
+        format="png", static_format="png", size=1024))
     img = await dagpi.image_process(ImageFeatures.pixel(), url)
     file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
     await ctx.send(file=file)
@@ -498,8 +498,5 @@ for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")
 
 bot.load_extension('jishaku')
-
-
-
 
 bot.run(TOKEN)
