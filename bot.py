@@ -13,12 +13,14 @@ import asyncpraw
 import aiosqlite
 from bs4 import BeautifulSoup
 import datetime
-from asyncdagpi import Client, ImageFeatures
+from asyncdagpi import ImageFeatures, Client
 import aiozaneapi
+import typing
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 dagpi = Client(os.getenv('DAGPI_TOKEN'))
+client = aiozaneapi.Client(os.getenv('ZANE_TOKEN'))
 
 class Bot(commands.Bot):
     def __init__(self, *args, **kwargs):
@@ -154,7 +156,10 @@ async def emojify(ctx, *, message):
 @bot.command(name='maf', description='Solves easy maf equations')
 async def maf(ctx, *, message):
     answer = eval(message)
-    await ctx.send(answer)
+    if type(answer) is int:
+        await ctx.send(answer)
+    else:
+        await ctx.send("Don't even think about it")
 
 
 @bot.command()
@@ -491,6 +496,28 @@ async def covid(ctx, *, countryName=None):
                                     colour=discord.Colour.blurple(), timestamp=ctx.message.created_at)
             embed3.set_author(name="Error!")
             await ctx.send(embed=embed3)
+
+@bot.command()
+async def magic(ctx, member: discord.Member=None):
+    if member is None:
+        member = ctx.author
+    image = await client.magic(str(member.avatar_url_as(format='png')))
+    file = discord.File(image, 'magic.gif')
+    await ctx.send(file=file)
+@bot.command()
+async def deepfry(ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str]=None):
+    async with ctx.channel.typing():
+        if thing == None:
+            url = str(ctx.author.avatar_url_as(static_format="png"))
+        elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            url = str(thing.url)
+        elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            url = str(thing.avatar_url_as(static_format="png"))
+        else:
+            url = thing
+    img = await dagpi.image_process(ImageFeatures.deepfry(), url)
+    file = discord.File(fp=img.image,filename=f"pixel.{img.format}")
+    await ctx.send(file=file)
 
 extensions = ['Jokes', 'Utility']
 
