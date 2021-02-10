@@ -16,6 +16,8 @@ import datetime
 from asyncdagpi import ImageFeatures, Client
 import aiozaneapi
 import typing
+import pathlib
+from simpleeval import simple_eval
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -32,9 +34,9 @@ async def get_prefix(bot, message):
         db = await aiosqlite.connect('config.db')
         cursor = await db.execute(f'SELECT prefix FROM config WHERE guild_id = {message.guild.id}')
         prefix = await cursor.fetchone()
-        return prefix if prefix else "!"
+        return prefix if prefix else "kb+"
     except:
-        return '!'
+        return 'kb+'
 intents = discord.Intents.all()
 bot = Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents, )
 bot.remove_command('help')
@@ -61,7 +63,7 @@ async def pixel(ctx, member: discord.Member):
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
-    await bot.change_presence(activity=discord.Game(name='Listening for !help'))
+    await bot.change_presence(activity=discord.Game(name='Listening for kb+help'))
 
 @bot.command()
 async def servers(ctx):
@@ -155,11 +157,8 @@ async def emojify(ctx, *, message):
 
 @bot.command(name='maf', description='Solves easy maf equations')
 async def maf(ctx, *, message):
-    answer = eval(message)
-    if type(answer) is int:
-        await ctx.send(answer)
-    else:
-        await ctx.send("Don't even think about it")
+    await ctx.send(simple_eval(message))
+
 
 
 @bot.command()
@@ -184,6 +183,8 @@ async def on_message(message):
     if message.author == bot.user:
         return
     if message.author.bot:
+        return
+    if message.guild.id == 336642139381301249:
         return
     if ':' in message.content:
         string = message.content
@@ -518,6 +519,32 @@ async def deepfry(ctx, thing: typing.Union[discord.Member, discord.PartialEmoji,
     img = await dagpi.image_process(ImageFeatures.deepfry(), url)
     file = discord.File(fp=img.image,filename=f"pixel.{img.format}")
     await ctx.send(file=file)
+
+@bot.command()
+async def leave(ctx):
+    await ctx.guild.leave()
+
+@bot.command()
+async def info(ctx):
+    p = pathlib.Path('./')
+    cm = cr = fn = cl = ls = fc = 0
+    for f in p.rglob('*.py'):
+        if str(f).startswith("venv"):
+            continue
+        fc += 1
+        with f.open() as of:
+            for l in of.readlines():
+                l = l.strip()
+                if l.startswith('class'):
+                    cl += 1
+                if l.startswith('def'):
+                    fn += 1
+                if l.startswith('async def'):
+                    cr += 1
+                if '#' in l:
+                    cm += 1
+                ls += 1
+    await ctx.send(f"file: {fc}\nline: {ls:,}\nclass: {cl}\nfunction: {fn}\ncoroutine: {cr}\ncomment: {cm:,}")
 
 extensions = ['Jokes', 'Utility']
 
