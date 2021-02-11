@@ -98,7 +98,7 @@ bot.help_command = MyHelp()
 @bot.event
 async def on_guild_join(guild):
     db = await aiosqlite.connect('config.db')
-    await db.execute(f"insert into config values ({guild.id}, '!', 'enabled', 'enabled', 'enabled' )")
+    await db.execute(f"insert into config values ({guild.id}, 'kb+', 'enabled', 'enabled', 'enabled' )")
     await db.commit()
 
 
@@ -199,7 +199,10 @@ async def on_message(message):
             if i.startswith(':'):
                 emoji_to_convert = i.strip(':')
                 emoji =  await converter.convert(ctx, emoji_to_convert)
-                message_to_send.append(str(emoji))
+                if emoji.guild_id == message.guild.id:
+                    break
+                else:
+                    message_to_send.append(str(emoji))
             else:
                 message_to_send.append(i)
         await message.delete()
