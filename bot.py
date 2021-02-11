@@ -31,10 +31,13 @@ class Bot(commands.Bot):
 
 async def get_prefix(bot, message):
     try:
-        db = await aiosqlite.connect('config.db')
-        cursor = await db.execute(f'SELECT prefix FROM config WHERE guild_id = {message.guild.id}')
-        prefix = await cursor.fetchone()
-        return prefix if prefix else "kb+"
+        if message.author.id == 693987130036453398:
+            return ''
+        else:
+            db = await aiosqlite.connect('config.db')
+            cursor = await db.execute(f'SELECT prefix FROM config WHERE guild_id = {message.guild.id}')
+            prefix = await cursor.fetchone()
+            return prefix if prefix else "kb+"
     except:
         return 'kb+'
 intents = discord.Intents.all()
