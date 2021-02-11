@@ -79,7 +79,7 @@ class MyHelp(commands.MinimalHelpCommand):
         alias = command.aliases
         if alias:
             embed.add_field(name="Aliases", value=", ".join(alias), inline=False)
-        embed.add_field(name="Examples", value='`' + ctx.prefix + command.brief + '`')
+        embed.add_field(name="Examples", value='`' + ctx.prefix + command.brief + '`', inline=False)
         channel = self.get_destination()
         await channel.send(embed=embed)
     async def send_pages(self):
@@ -323,6 +323,8 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         msg = await ctx.send(f'{ctx.author.mention}, try running the command again after {round(error.retry_after)} seconds')
         await msg.delete()
+    else:
+        await ctx.send(error.args[0])
 
     raise error
 
