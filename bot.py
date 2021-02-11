@@ -31,9 +31,6 @@ class Bot(commands.Bot):
 
 async def get_prefix(bot, message):
     try:
-        if message.author.id == 693987130036453398:
-            return ''
-        else:
             db = await aiosqlite.connect('config.db')
             cursor = await db.execute(f'SELECT prefix FROM config WHERE guild_id = {message.guild.id}')
             prefix = await cursor.fetchone()
@@ -329,9 +326,6 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         msg = await ctx.send(f'{ctx.author.mention}, try running the command again after {round(error.retry_after)} seconds')
         await msg.delete()
-    else:
-        await ctx.send(error.args[0])
-
     raise error
 
 
