@@ -180,6 +180,7 @@ async def mute(ctx, time, member: discord.Member, reason=None):
 
 @bot.event
 async def on_message(message):
+    whether_to_send_message = True
     if message.author == bot.user:
         return
     if message.author.bot:
@@ -187,26 +188,23 @@ async def on_message(message):
     if message.guild.id == 336642139381301249:
         return
     if ':' in message.content:
-        string = message.content
-        list_of_words = string.split()
-        message_to_send = []
-        ctx = await bot.get_context(message)
-        for i in list_of_words:
-            converter = commands.EmojiConverter()
-            if i.startswith(':'):
-                emoji_to_convert = i.strip(':')
-                emoji =  await converter.convert(ctx, emoji_to_convert)
-                if emoji.guild_id == message.guild.id:
-                    break
-                else:
+            string = message.content
+            list_of_words = string.split()
+            message_to_send = []
+            ctx = await bot.get_context(message)
+            for i in list_of_words:
+                converter = commands.EmojiConverter()
+                if i.startswith(':'):
+                    emoji_to_convert = i.strip(':')
+                    emoji =  await converter.convert(ctx, emoji_to_convert)
                     message_to_send.append(str(emoji))
-            else:
-                message_to_send.append(i)
-        await message.delete()
-        webhook_message_to_send = ' '.join(message_to_send)
-        webhook = await message.channel.create_webhook(name='webhook')
-        await webhook.send(content=webhook_message_to_send, username=message.author.display_name, avatar_url=message.author.avatar_url)
-        await webhook.delete()
+                else:
+                    message_to_send.append(i)
+                    await message.delete()
+                    webhook_message_to_send = ' '.join(message_to_send)
+                    webhook = await message.channel.create_webhook(name='webhook')
+                    await webhook.send(content=webhook_message_to_send, username=message.author.display_name, avatar_url=message.author.avatar_url)
+                    await webhook.delete()
     bucket = message_cooldown.get_bucket(message)
     retry_after = bucket.update_rate_limit()
     custom_emojis = re.findall(
