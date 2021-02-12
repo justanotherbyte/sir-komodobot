@@ -3,7 +3,6 @@ import os
 from asyncpraw.reddit import Reddit
 from discord.ext import commands, tasks
 import discord
-from discord.ext.commands.cooldowns import BucketType
 from dotenv import load_dotenv
 import random
 import asyncio
@@ -43,13 +42,12 @@ bot.remove_command('help')
 
 
 
-id = os.getenv('REDDIT_CLIENT_ID')
-secret = os.getenv('REDDIT_CLIENT_SECRET')
+
 
 
 message_cooldown = commands.CooldownMapping.from_cooldown(1.0, 3.0, commands.BucketType.user)
 
-reddit = asyncpraw.Reddit(client_id=id, client_secret=secret, user_agent="Sir Komodo the Great Bot",)
+
 
 
 @bot.command()
@@ -87,10 +85,8 @@ class MyHelp(commands.MinimalHelpCommand):
         for page in self.paginator.pages:
             emby = discord.Embed(description=page)
             await destination.send(embed=emby)
-            
 
 bot.help_command = MyHelp()
-
 
 @bot.event
 async def on_guild_join(guild):
@@ -98,31 +94,11 @@ async def on_guild_join(guild):
     await db.execute(f"insert into config values ({guild.id}, 'kb+', 'enabled', 'enabled', 'enabled' )")
     await db.commit()
 
-
-
-@bot.command(name='hello')
-async def hello(ctx):
-    member = ctx.author.mention
-    await ctx.send(f'Hello, {member}! How are you today?')
-
-
-@bot.command(description='Makes text bold')
-async def bold(ctx, *, message):
-    await ctx.send(f'**{message}**')
-
-
 @bot.command(description='Sets the prefix for Sir KomodoBot to use in your server.')
 async def setprefix(ctx, prefix: str):
     db = await aiosqlite.connect('config.db')
     await db.execute(f'update config set prefix = (?) where guild_id = {ctx.guild.id}', (prefix,))
     await db.commit()
-
-
-
-@bot.command(description='sends the pog emote')
-async def pog(ctx):
-    await ctx.send('<:poggers:801548798424907816>')
-
 
 @bot.command(description='Kicks a member, Admin Only')
 @commands.has_permissions(administrator=True)
@@ -130,36 +106,15 @@ async def kick(ctx, member: discord.Member, *, reason=None):
     await member.kick(reason=reason)
     await ctx.send(f'User {member} has kicked.')
 
-
-
-
 @bot.command(description='Asks specfified user to review the rules.')
 async def rules(ctx, member: discord.Member):
     rules_channel = discord.utils.find(lambda m: "rule" in m.name, ctx.guild.channels)
     if not rules_channel is None:
         await member.send(f'{member.mention}, Please review the rules at <#{rules_channel.id}>')
 
-@bot.command(name="emojify")
-async def emojify(ctx, *, message):
-    emojis = []
-    message1 = message.lower()
-    letters = list(message1)
-    for i in letters:
-        if i.isalpha():
-            emojis.append(f':regional_indicator_{i}:')
-        elif i == " ":
-            emojis.append(' ')
-        else:
-            emojis.append(i)
-    sentence = " ".join(emojis)
-    await ctx.send(sentence)
-
-
 @bot.command(name='maf', description='Solves easy maf equations')
 async def maf(ctx, *, message):
     await ctx.send(simple_eval(message))
-
-
 
 @bot.command()
 @commands.has_permissions(administrator=True)
@@ -176,7 +131,6 @@ async def mute(ctx, time, member: discord.Member, reason=None):
     await member.add_roles(remove)
     await member.remove_roles(role)
     embed = discord.Embed(title="User Unmuted", description="**{0}** was muted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
-
 
 @bot.event
 async def on_message(message):
@@ -200,11 +154,11 @@ async def on_message(message):
                     message_to_send.append(str(emoji))
                 else:
                     message_to_send.append(i)
-                    await message.delete()
-                    webhook_message_to_send = ' '.join(message_to_send)
-                    webhook = await message.channel.create_webhook(name='webhook')
-                    await webhook.send(content=webhook_message_to_send, username=message.author.display_name, avatar_url=message.author.avatar_url)
-                    await webhook.delete()
+                await message.delete()
+                webhook_message_to_send = ' '.join(message_to_send)
+                webhook = await message.channel.create_webhook(name='webhook')
+                await webhook.send(content=webhook_message_to_send, username=message.author.display_name, avatar_url=message.author.avatar_url)
+                await webhook.delete()
     bucket = message_cooldown.get_bucket(message)
     retry_after = bucket.update_rate_limit()
     custom_emojis = re.findall(
@@ -242,58 +196,6 @@ async def on_message(message):
         await msg.delete()
     await bot.process_commands(message)
 
-
-@bot.command(aliases=["pander", "pando"])
-async def panda(ctx):
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get("https://some-random-api.ml/img/panda") as r:
-            res = await r.json()
-    embed = discord.Embed(title=f"PANDA!!!", color=0x0000FF)
-    embed.set_image(url=res["link"])
-    embed.set_footer(text="Powered by https://some-random-api.ml")
-    await ctx.send(embed=embed)
-
-@bot.command(aliases=["bird", "birdo", "birbo"])
-async def birb(ctx):
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get("https://some-random-api.ml/img/birb") as r:
-            res = await r.json()
-    embed = discord.Embed(title=f"BIRB!!!", color=0x0000FF)
-    embed.set_image(url=res["link"])
-    embed.set_footer(text="Powered by https://some-random-api.ml")
-    await ctx.send(embed=embed)
-
-@bot.command(aliases=["foxo", "foxxo", "foxy", "foxxy"])
-async def fox(ctx):
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get("https://some-random-api.ml/img/fox") as r:
-            res = await r.json()
-    embed = discord.Embed(title=f"FOXXY!!!", color=0x0000FF)
-    embed.set_image(url=res["link"])
-    embed.set_footer(text="Powered by https://some-random-api.ml")
-    await ctx.send(embed=embed)
-
-@bot.command(aliases=["redpando", "redpander"])
-async def redpanda(ctx):
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get("https://some-random-api.ml/img/red_panda") as r:
-            res = await r.json()
-    embed = discord.Embed(title=f"RED PANDO!!!", color=0x0000FF)
-    embed.set_image(url=res["link"])
-    embed.set_footer(text="Powered by https://some-random-api.ml")
-    await ctx.send(embed=embed)
-
-@bot.command(aliases=["koaler"])
-async def koala(ctx):
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get("https://some-random-api.ml/img/koala") as r:
-            res = await r.json()
-    embed = discord.Embed(title=f"KOALA!!!", color=0x0000FF)
-    embed.set_image(url=res["link"])
-    embed.set_footer(text="Powered by https://some-random-api.ml")
-    await ctx.send(embed=embed)
-    
-
 @bot.command()
 async def purge(ctx, number, member: discord.Member = None):
     def mycheck(message):
@@ -326,17 +228,6 @@ async def on_command_error(ctx, error):
         await msg.delete()
     raise error
 
-
-@bot.command(aliases=["dog", "doggy"])
-async def doggo(ctx):
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get('https://dog.ceo/api/breeds/image/random') as r:
-            res = await r.json()
-    embed = discord.Embed(title=f"DOGGO!!!", color=0xff0000)
-    embed.set_image(url=res["message"])
-    embed.set_footer(text="Powered by https://dog.ceo")
-    await ctx.send(embed=embed)
-
 @bot.command()
 async def xkcd(ctx):
     comic_num = random.randint(1, 2415)
@@ -349,38 +240,6 @@ async def xkcd(ctx):
     embed.set_footer(
         text=f"Comic Released on: {res['month']}/{res['day']}/{res['year']} (view more comics at https://xkcd.com)")
     await ctx.send(embed=embed)
-@bot.command()
-@commands.cooldown(1, 3.0, BucketType.member)
-async def meme(ctx):
-    subreddit = await reddit.subreddit("memes")
-    submission = await subreddit.random()
-    if not submission.over_18:
-        titled = submission.title
-        url = submission.url
-        reddited = submission.subreddit_name_prefixed
-        reddit_embed = discord.Embed(
-            title=f"**{titled}**", url=f'https://reddit.com/comments/{submission.id}', color=discord.Colour.orange())
-        reddit_embed.set_author(name=f"{reddited}", url=f'https://www.reddit.com/r/{subreddit}',
-                                icon_url='https://external-preview.redd.it/iDdntscPf-nfWKqzHRGFmhVxZm4hZgaKe5oyFws-yzA.png?auto=webp&s=38648ef0dc2c3fce76d5e1d8639234d8da0152b2')
-        reddit_embed.set_image(url=f'{url}')
-        await ctx.trigger_typing()
-        await ctx.send(embed=reddit_embed)
-
-
-@bot.command(description='gives you some cute animal pics!', aliases=['cute', 'awww'])
-async def aww(ctx):
-    subreddit = await reddit.subreddit("aww")
-    submission = await subreddit.random()
-    if not submission.over_18:
-        titled = submission.title
-        url = submission.url
-        reddited = submission.subreddit_name_prefixed
-        reddit_embed = discord.Embed(
-            title=f"**{titled}**", url=f'https://reddit.com/comments/{submission.id}', color=discord.Colour.orange())
-        reddit_embed.set_author(name=f"{reddited}", url=f'https://www.reddit.com/r/{subreddit}',
-                                icon_url='https://external-preview.redd.it/iDdntscPf-nfWKqzHRGFmhVxZm4hZgaKe5oyFws-yzA.png?auto=webp&s=38648ef0dc2c3fce76d5e1d8639234d8da0152b2')
-        reddit_embed.set_image(url=f'{url}')
-        await ctx.send(embed=reddit_embed)
 
 @bot.command()
 async def gif(ctx, *, img, num=1):
@@ -390,33 +249,6 @@ async def gif(ctx, *, img, num=1):
         async with cs.get(link) as r:
             res = await r.json()
             await ctx.send(res["data"][num-1]["url"])
-
-
-
-@bot.command()
-async def facepalm(ctx):
-    subreddit = await reddit.subreddit("facepalm")
-    submission = await subreddit.random()
-    if not submission.over_18:
-        titled = submission.title
-        url = submission.url
-        reddited = submission.subreddit_name_prefixed
-        reddit_embed = discord.Embed(
-            title=f"**{titled}**", url=f'https://reddit.com/comments/{submission.id}', color=discord.Colour.orange())
-        reddit_embed.set_author(name=f"{reddited}", url=f'https://www.reddit.com/r/{subreddit}',
-                                icon_url='https://external-preview.redd.it/iDdntscPf-nfWKqzHRGFmhVxZm4hZgaKe5oyFws-yzA.png?auto=webp&s=38648ef0dc2c3fce76d5e1d8639234d8da0152b2')
-        reddit_embed.set_image(url=f'{url}')
-        await ctx.send(embed=reddit_embed)
-
-@bot.command(aliases=["ducc", "ducco", "ducko"])
-async def duck(ctx):
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get('https://random-d.uk/api/random') as r:
-            res = await r.json()
-    embed = discord.Embed(title=f"DUCCCY!!!", color=0x0000ff)
-    embed.set_image(url=res["url"])
-    embed.set_footer(text=res["message"])
-    await ctx.send(embed=embed)
 
 @bot.command(help='Posts a random bignate comic', brief='bignate')
 async def bignate(ctx):
@@ -437,7 +269,6 @@ async def bignate(ctx):
                 title=comic.img['alt'], color=0x0000ff, url=f'http://gocomics.com/bignate/{date}')
             embed.set_image(url=comic.img['src'])
             await ctx.send(embed=embed)
-
 
 @bot.command(help="Covid stats. Use world as country to view total stats", aliases=['cv'])
 async def covid(ctx, *, countryName=None):
@@ -545,8 +376,29 @@ async def info(ctx):
                     cm += 1
                 ls += 1
     await ctx.send(f"file: {fc}\nline: {ls:,}\nclass: {cl}\nfunction: {fn}\ncoroutine: {cr}\ncomment: {cm:,}")
+bot.command()
 
-extensions = ['Jokes', 'Utility']
+@bot.command()
+async def cb(ctx):
+    await ctx.reply('Your chatbot session has started. Type `stop` to end it.')
+    while True:
+        def check(message):
+            return message.author == ctx.author and message.channel == ctx.channel
+        text = await bot.wait_for('message', check=check)
+        if not (3 <= len(text.content) <= 60):
+            await ctx.send("Text must be longer than 3 chars and shorter than 60.")
+        else:
+            async with ctx.channel.typing():
+                payload = {"text": text.content}
+                async with aiohttp.ClientSession() as session:
+                    thing = await session.post("https://public-api.travitia.xyz/talk", json=payload, headers={"authorization": os.getenv('CHATBOT_TOKEN')})
+                    await text.reply((await thing.json())["response"])
+                if text.content == 'stop':
+                    await text.reply('Your chatbot session has ended')
+                    break
+
+
+extensions = ['Fun', 'Utility']
 
 for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")
