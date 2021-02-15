@@ -17,10 +17,15 @@ import aiozaneapi
 import typing
 import pathlib
 from simpleeval import simple_eval
+import async_cleverbot as ac
+import psutil
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 dagpi = Client(os.getenv('DAGPI_TOKEN'))
+cleverbot = ac.Cleverbot(os.getenv('CHATBOT_TOKEN'))
+
+
 client = aiozaneapi.Client(os.getenv('ZANE_TOKEN'))
 
 class Bot(commands.Bot):
@@ -138,8 +143,6 @@ async def on_message(message):
     if message.author == bot.user:
         return
     if message.author.bot:
-        return
-    if message.guild.id == 336642139381301249:
         return
     if ':' in message.content:
             string = message.content
@@ -320,6 +323,7 @@ async def covid(ctx, *, countryName=None):
                                         value=totalTests, inline=True)
                         embed2.add_field(name="**Tests Per One Million**",
                                         value=testsPerOneMillion, inline=True)
+                        embed2.set_footer(text=f'Requested by {ctx.author.name}', icon_url=ctx.author.avatar_url)
 
                         await ctx.send(embed=embed2)
 
@@ -358,6 +362,7 @@ async def leave(ctx):
 @bot.command()
 async def info(ctx):
     p = pathlib.Path('./')
+    process = psutil.Process()
     cm = cr = fn = cl = ls = fc = 0
     for f in p.rglob('*.py'):
         if str(f).startswith("venv"):
@@ -375,11 +380,16 @@ async def info(ctx):
                 if '#' in l:
                     cm += 1
                 ls += 1
-    await ctx.send(f"file: {fc}\nline: {ls:,}\nclass: {cl}\nfunction: {fn}\ncoroutine: {cr}\ncomment: {cm:,}")
+    embed = discord.Embed(title='Information about Sir KomodoBot', description='My owner is **,,MrKomodoDragon#7975**')
+    await embed.add_field(name='CPU Usage')
+    await ctx.send(f"Files: {fc}\nLines: {ls:,}\nClasses: {cl}\nFunctions: {fn}\nCoroutines: {cr}\nComments: {cm:,}")
 bot.command()
 
 @bot.command()
-async def cb(ctx):
+async def cb(ctx, emotion='neutral'):
+    emotions = {
+        'neutral': ac.Emotion.neutral
+    }
     await ctx.reply('Your chatbot session has started. Type `stop` to end it.')
     while True:
         def check(message):
@@ -389,13 +399,31 @@ async def cb(ctx):
             await ctx.send("Text must be longer than 3 chars and shorter than 60.")
         else:
             async with ctx.channel.typing():
-                payload = {"text": text.content}
-                async with aiohttp.ClientSession() as session:
-                    thing = await session.post("https://public-api.travitia.xyz/talk", json=payload, headers={"authorization": os.getenv('CHATBOT_TOKEN')})
-                    await text.reply((await thing.json())["response"])
+                response = await cleverbot.ask(text.content, emotion=emotions[f'{emotion}'])
+                await text.reply(response)
                 if text.content == 'stop':
                     await text.reply('Your chatbot session has ended')
                     break
+
+
+@bot.command()
+async def xkcdsearch(self, ctx, *, search: str):
+    relevant_xkcd_url = 'https://relevantxkcd.appspot.com/process?action=xkcd&query='
+    search_url = relevant_xkcd_url + search
+    async with aiohttp.ClientSession() as session:
+        async with session.get(search_url) as resp:
+            text = await resp.text()
+            results = text.split('\n')
+            num = results[2].split(' ')[0]
+            e = discord.Embed(title = f'Search results for {search}')
+            async with aiohttp.ClientSession() as xkcd_session:
+                async with xkcd_session.get(f'https://xkcd.com/{num}/info.0.json') as info:
+                    comix = await info.json()
+            more_results = f'[More results]({search_url})'
+            relevance = '**Relevancy:** {}%\n{}\n\n'.format(str(round(float(results[0])*100, 2)), more_results)
+            e.description = relevance + e.description
+            e.add_field(name=f'Xkcd Comic number')
+            await ctx.send(embed=e)
 
 
 extensions = ['Fun', 'Utility']

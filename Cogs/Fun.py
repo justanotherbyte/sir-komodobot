@@ -1,4 +1,5 @@
 import os
+from discord import client
 from discord.ext import commands, tasks
 import discord
 from dotenv import load_dotenv
@@ -8,12 +9,14 @@ import asyncio
 import re
 import aiohttp
 import asyncpraw
+from asyncdagpi import ImageFeatures, Client
 
 load_dotenv()
 
 id = os.getenv('REDDIT_CLIENT_ID')
 secret = os.getenv('REDDIT_CLIENT_SECRET')
 
+dagpi = Client(os.getenv('DAGPI_TOKEN'))
 
 reddit = asyncpraw.Reddit(client_id=id, client_secret=secret, user_agent="Sir Komodo the Great Bot",)
 
@@ -90,7 +93,7 @@ class Fun(commands.Cog):
 
 
     @commands.command(aliases=["foxo", "foxxo", "foxy", "foxxy"])
-    async def fox(ctx):
+    async def fox(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/fox") as r:
                 res = await r.json()
@@ -101,7 +104,7 @@ class Fun(commands.Cog):
 
 
     @commands.command(aliases=["redpando", "redpander"])
-    async def redpanda(ctx):
+    async def redpanda(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/red_panda") as r:
                 res = await r.json()
@@ -112,7 +115,7 @@ class Fun(commands.Cog):
 
 
     @commands.command(aliases=["koaler"])
-    async def koala(ctx):
+    async def koala(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/koala") as r:
                 res = await r.json()
@@ -137,7 +140,7 @@ class Fun(commands.Cog):
             await ctx.send(embed=reddit_embed)
 
     @commands.command(aliases=["dog", "doggy"])
-    async def doggo(ctx):
+    async def doggo(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://dog.ceo/api/breeds/image/random') as r:
                 res = await r.json()
@@ -148,7 +151,7 @@ class Fun(commands.Cog):
 
     @commands.command()
     @commands.cooldown(1, 3.0, BucketType.member)
-    async def meme(ctx):
+    async def meme(self, ctx):
         subreddit = await reddit.subreddit("memes")
         submission = await subreddit.random()
         if not submission.over_18:
@@ -163,7 +166,7 @@ class Fun(commands.Cog):
             await ctx.trigger_typing()
             await ctx.send(embed=reddit_embed)
     @commands.command()
-    async def facepalm(ctx):
+    async def facepalm(self, ctx):
         subreddit = await reddit.subreddit("facepalm")
         submission = await subreddit.random()
         if not submission.over_18:
@@ -179,7 +182,7 @@ class Fun(commands.Cog):
 
 
     @commands.command(aliases=["ducc", "ducco", "ducko"])
-    async def duck(ctx):
+    async def duck(self, ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://random-d.uk/api/random') as r:
                 res = await r.json()
@@ -187,6 +190,12 @@ class Fun(commands.Cog):
         embed.set_image(url=res["url"])
         embed.set_footer(text=res["message"])
         await ctx.send(embed=embed)
+    @commands.command()
+    async def roast(self, ctx, member: discord.Member=None):
+        if member == None:
+            member =  ctx.author
+        roast = await dagpi.roast()
+        await ctx.send(f"**{member.name}**, {roast}")
 
 def setup(bot):
     bot.add_cog(Fun(bot))
