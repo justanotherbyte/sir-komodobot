@@ -124,6 +124,16 @@ class Fun(commands.Cog):
         embed.set_footer(text="Powered by https://some-random-api.ml")
         await ctx.send(embed=embed)
 
+    @commands.command(aliases=["cato"])
+    async def cat(self, ctx):
+        async with aiohttp.ClientSession() as cs:
+            async with cs.get("https://some-random-api.ml/img/cat") as r:
+                res = await r.json()
+        embed = discord.Embed(title=f"CATTO!!!", color=0x0000FF)
+        embed.set_image(url=res["link"])
+        embed.set_footer(text="Powered by https://some-random-api.ml")
+        await ctx.send(embed=embed)
+
     @commands.command(description='gives you some cute animal pics!', aliases=['cute', 'awww'])
     async def aww(self, ctx):
         subreddit = await reddit.subreddit("aww")

@@ -19,11 +19,17 @@ import pathlib
 from simpleeval import simple_eval
 import async_cleverbot as ac
 import psutil
+import humanize
+import time
+import unicodedata
+
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
 dagpi = Client(os.getenv('DAGPI_TOKEN'))
 cleverbot = ac.Cleverbot(os.getenv('CHATBOT_TOKEN'))
+
+
 
 
 client = aiozaneapi.Client(os.getenv('ZANE_TOKEN'))
@@ -44,7 +50,7 @@ async def get_prefix(bot, message):
 intents = discord.Intents.all()
 bot = Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents, )
 bot.remove_command('help')
-
+bot.snipes = {}
 
 
 
@@ -139,29 +145,32 @@ async def mute(ctx, time, member: discord.Member, reason=None):
 
 @bot.event
 async def on_message(message):
-    whether_to_send_message = True
     if message.author == bot.user:
         return
     if message.author.bot:
         return
-    if ':' in message.content:
-            string = message.content
-            list_of_words = string.split()
-            message_to_send = []
-            ctx = await bot.get_context(message)
-            for i in list_of_words:
-                converter = commands.EmojiConverter()
-                if i.startswith(':'):
+    if re.search('<(?P<animated>a?):(?P<name>[a-zA-Z0-9_]{2,32}):(?P<id>[0-9]{18,22})', message.content):
+        return
+    if re.search(r':(.*?):', message.content):
+        string = message.content
+        list_of_words = string.split()
+        message_to_send = []
+        ctx = await bot.get_context(message)
+        for i in list_of_words:
+            converter = commands.EmojiConverter()
+            if i.startswith(':'):
                     emoji_to_convert = i.strip(':')
-                    emoji =  await converter.convert(ctx, emoji_to_convert)
+                    emoji = await converter.convert(ctx, emoji_to_convert)
                     message_to_send.append(str(emoji))
-                else:
-                    message_to_send.append(i)
-                await message.delete()
-                webhook_message_to_send = ' '.join(message_to_send)
-                webhook = await message.channel.create_webhook(name='webhook')
-                await webhook.send(content=webhook_message_to_send, username=message.author.display_name, avatar_url=message.author.avatar_url)
-                await webhook.delete()
+            else:
+                message_to_send.append(i)
+        #await message.channel.send(message_to_send)
+        await message.delete()
+        webhook_message_to_send = ' '.join(message_to_send)
+        #await ctx.send(webhook_message_to_send)            
+        webhook = await message.channel.create_webhook(name='webhook')
+        await webhook.send(content=webhook_message_to_send, username=message.author.display_name, avatar_url=message.author.avatar_url)
+        await webhook.delete()
     bucket = message_cooldown.get_bucket(message)
     retry_after = bucket.update_rate_limit()
     custom_emojis = re.findall(
@@ -363,6 +372,11 @@ async def leave(ctx):
 async def info(ctx):
     p = pathlib.Path('./')
     process = psutil.Process()
+    start=time.perf_counter()
+    await ctx.trigger_typing()
+    end=time.perf_counter()
+    final=end-start
+    api_latency = round(final*1000, 3)
     cm = cr = fn = cl = ls = fc = 0
     for f in p.rglob('*.py'):
         if str(f).startswith("venv"):
@@ -381,9 +395,12 @@ async def info(ctx):
                     cm += 1
                 ls += 1
     embed = discord.Embed(title='Information about Sir KomodoBot', description='My owner is **,,MrKomodoDragon#7975**')
-    await embed.add_field(name='CPU Usage')
-    await ctx.send(f"Files: {fc}\nLines: {ls:,}\nClasses: {cl}\nFunctions: {fn}\nCoroutines: {cr}\nComments: {cm:,}")
-bot.command()
+    embed.add_field(name='System Info', value=f'```py\nCPU Usage: {process.cpu_percent()}%\nMemory Usage: {humanize.naturalsize(process.memory_full_info().rss)}\nPID: {process.pid}\nThread(s): {process.num_threads()}```', inline=False)
+    embed.add_field(name='Websocket Latency:', value=f"```py\n{round(bot.latency*1000)} ms```")
+    embed.add_field(name='API Latency', value=f'```py\n{round(api_latency)} ms```')
+    embed.add_field(name='File Stats:', value=f"```py\nFiles: {fc}\nLines: {ls:,}\nClasses: {cl}\nFunctions: {fn}\nCoroutines: {cr}\nComments: {cm:,}```", inline=False)
+    await ctx.send(embed=embed)
+
 
 @bot.command()
 async def cb(ctx, emotion='neutral'):
@@ -407,7 +424,7 @@ async def cb(ctx, emotion='neutral'):
 
 
 @bot.command()
-async def xkcdsearch(self, ctx, *, search: str):
+async def xkcdsearch(ctx, *, search):
     relevant_xkcd_url = 'https://relevantxkcd.appspot.com/process?action=xkcd&query='
     search_url = relevant_xkcd_url + search
     async with aiohttp.ClientSession() as session:
@@ -415,16 +432,66 @@ async def xkcdsearch(self, ctx, *, search: str):
             text = await resp.text()
             results = text.split('\n')
             num = results[2].split(' ')[0]
-            e = discord.Embed(title = f'Search results for {search}')
             async with aiohttp.ClientSession() as xkcd_session:
                 async with xkcd_session.get(f'https://xkcd.com/{num}/info.0.json') as info:
                     comix = await info.json()
             more_results = f'[More results]({search_url})'
-            relevance = '**Relevancy:** {}%\n{}\n\n'.format(str(round(float(results[0])*100, 2)), more_results)
-            e.description = relevance + e.description
-            e.add_field(name=f'Xkcd Comic number')
-            await ctx.send(embed=e)
+            round_relevance = round(float(results[0])*1000, 1)
+            relevance = f'**Relevance: {round_relevance}%**'
+            embed=discord.Embed(title=f"**{num}: {comix['title']}**", colour=discord.Colour(0xffffff), url=f"https://xkcd.com/{num}/", description=comix['alt'])
+            embed.set_image(url=comix["img"])
+            embed.set_author(name="XKCD", url="https://xkcd.com",
+                            icon_url="https://cdn.changelog.com/uploads/icons/news_sources/P2m/icon_small.png?v=63722746912")
+            embed.set_footer(
+                text=f"Comic Released on: {comix['month']}/{comix['day']}/{comix['year']} (view more comics at https://xkcd.com)")
+            await ctx.send(f'{relevance}', embed=embed)
+@bot.event
+async def on_message_delete(message):
+  bot.snipes[message.channel.id] = message
 
+
+@bot.command()
+async def snipe(ctx, *, channel: discord.TextChannel = None):
+  channel = channel or ctx.channel
+  try:
+    msg = bot.snipes[channel.id]
+  except KeyError:
+    return await ctx.send('Nothing to snipe!')
+  # one liner, dont complain
+  await ctx.send(embed=discord.Embed(description=msg.content, color=msg.author.color).set_author(name=str(msg.author), icon_url=str(msg.author.avatar_url)))
+
+@bot.command()
+async def charinfo(ctx, *, characters: str):
+        """Shows you information about a number of characters.
+        Only up to 25 characters at a time.
+        """        
+        def to_string(c):
+            digit = f'{ord(c):x}'
+            name = unicodedata.name(c, 'Name not found.')
+            return f'`\\U{digit:>08}`: {name} - {c} \N{EM DASH} <http://www.fileformat.info/info/unicode/char/{digit}>'
+        msg = '\n'.join(map(to_string, characters))
+        if len(msg) > 2000:
+            return await ctx.send('Output too long to display.')
+        await ctx.send(msg)
+
+@bot.command()
+async def getpic(ctx, url: str):
+    try:
+        link = url.strip('<')
+        await ctx.send(f'https://image.thum.io/get/{url}')
+    except:
+        await ctx.send('Couldn\'t screenshot due to error')
+
+@bot.command()
+async def redirectcheck(ctx, url: str):
+    async with aiohttp.ClientSession().get(url, allow_redirects=True, headers={'User-Agent': 'python-requests/2.20.0'}) as response:
+            await ctx.send(response.real_url)
+
+@bot.command(aliases=['src'])
+async def source(ctx):
+    embed=discord.Embed(title='Sir KomodoBot\'s Source')
+    embed.description = 'Here is my repo link: https://github.com/MrKomodoDragon/sir-komodobot\n\nDon\'t forget to leave a star!\n(Also, [please respect the license!](https://github.com/MrKomodoDragon/sir-komodobot/blob/main/LICENSE))'
+    await ctx.send(embed=embed)
 
 extensions = ['Fun', 'Utility']
 
