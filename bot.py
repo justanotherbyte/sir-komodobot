@@ -22,6 +22,8 @@ import psutil
 import humanize
 import time
 import unicodedata
+import similar
+import inspect
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -238,6 +240,11 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandOnCooldown):
         msg = await ctx.send(f'{ctx.author.mention}, try running the command again after {round(error.retry_after)} seconds')
         await msg.delete()
+    if isinstance(error, commands.CommandNotFound):
+        cmd = ctx.invoked_with
+        cmds = [cmd.name for cmd in bot.commands]
+        match = similar.best_match(cmd, cmds)
+        await ctx.send(f'Command `{cmd}` not found, maybe you meant `{match}`?')
     raise error
 
 @bot.command()
@@ -488,11 +495,18 @@ async def redirectcheck(ctx, url: str):
             await ctx.send(response.real_url)
 
 @bot.command(aliases=['src'])
-async def source(ctx):
-    embed=discord.Embed(title='Sir KomodoBot\'s Source')
-    embed.description = 'Here is my repo link: https://github.com/MrKomodoDragon/sir-komodobot\n\nDon\'t forget to leave a star!\n(Also, [please respect the license!](https://github.com/MrKomodoDragon/sir-komodobot/blob/main/LICENSE))'
-    await ctx.send(embed=embed)
-
+async def source(ctx, command=None):
+    if command == None:
+        embed=discord.Embed(title='Sir KomodoBot\'s Source')
+        embed.description = 'Here is my repo link: https://github.com/MrKomodoDragon/sir-komodobot\n\nDon\'t forget to leave a star!\n(Also, [please respect the license!](https://github.com/MrKomodoDragon/sir-komodobot/blob/main/LICENSE))'
+        await ctx.send(embed=embed)
+    else: 
+        source_lines = inspect.getsource(bot.get_command("meme").callback).splitlines()
+        paginator = commands.Paginator("`" * 3 + "py")
+        for index, line in enumerate(source_lines, start=1):
+            paginator.add_line(f"{index} {line}")
+        for page in paginator.pages:
+            await ctx.send(page)
 extensions = ['Fun', 'Utility']
 
 for extension in extensions:
