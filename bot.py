@@ -24,7 +24,7 @@ import time
 import unicodedata
 import similar
 import inspect
-
+import difflib
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -236,7 +236,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         cmd = ctx.invoked_with
         cmds = [cmd.name for cmd in bot.commands]
-        match = similar.best_match(cmd, cmds)
+        match = difflib.get_close_matches(cmd, cmds, 1)
         await ctx.send(f'Command `{cmd}` not found, maybe you meant `{match}`?')
     raise error
 
