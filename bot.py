@@ -63,13 +63,6 @@ message_cooldown = commands.CooldownMapping.from_cooldown(1.0, 3.0, commands.Buc
 
 
 
-@bot.command()
-async def pixel(ctx, member: discord.Member):
-    url = str(member.avatar_url_as(
-        format="png", static_format="png", size=1024))
-    img = await dagpi.image_process(ImageFeatures.pixel(), url)
-    file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
-    await ctx.send(file=file)
 
 @bot.event
 async def on_ready():
@@ -356,20 +349,7 @@ async def magic(ctx, member: discord.Member=None):
     image = await client.magic(str(member.avatar_url_as(format='png')))
     file = discord.File(image, 'magic.gif')
     await ctx.send(file=file)
-@bot.command()
-async def deepfry(ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str]=None):
-    async with ctx.channel.typing():
-        if thing == None:
-            url = str(ctx.author.avatar_url_as(static_format="png"))
-        elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
-            url = str(thing.url)
-        elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
-            url = str(thing.avatar_url_as(static_format="png"))
-        else:
-            url = thing
-    img = await dagpi.image_process(ImageFeatures.deepfry(), url)
-    file = discord.File(fp=img.image,filename=f"pixel.{img.format}")
-    await ctx.send(file=file)
+
 
 @bot.command()
 async def leave(ctx):
@@ -507,7 +487,7 @@ async def source(ctx, command=None):
             paginator.add_line(f"{index} {line}")
         for page in paginator.pages:
             await ctx.send(page)
-extensions = ['Fun', 'Utility']
+extensions = ['Fun', 'Utility', 'Images']
 
 for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")
