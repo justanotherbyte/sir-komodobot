@@ -469,29 +469,28 @@ async def getpic(ctx, url: str):
     except:
         await ctx.send('Couldn\'t screenshot due to error')
 
+
 @bot.command()
-async def redirectcheck(ctx, url: str):
-    async with aiohttp.ClientSession().get(url, allow_redirects=True, headers={'User-Agent': 'python-requests/2.20.0'}) as response:
-            await ctx.send(response.real_url)
+async def redirectcheck(ctx, website):
+    website = website.strip("<>")
+    async with aiohttp.ClientSession(headers={'User-Agent': 'python-requests/2.20.0'}).get(website) as resp:
+        soup = BeautifulSoup(await resp.text(), features="lxml")
+        canonical = soup.find('link', {'rel': 'canonical'})
+        if canonical == None:
+            return await ctx.send(f"`{resp.real_url}`")
+        await ctx.send(f"`{canonical['href']}`")
+
 
 @bot.command(aliases=['src'])
-async def source(ctx, command=None):
-    if command == None:
-        embed=discord.Embed(title='Sir KomodoBot\'s Source')
-        embed.description = 'Here is my repo link: https://github.com/MrKomodoDragon/sir-komodobot\n\nDon\'t forget to leave a star!\n(Also, [please respect the license!](https://github.com/MrKomodoDragon/sir-komodobot/blob/main/LICENSE))'
-        await ctx.send(embed=embed)
-    else: 
-        source_lines = inspect.getsource(bot.get_command("meme").callback).splitlines()
-        paginator = commands.Paginator("`" * 3 + "py")
-        for index, line in enumerate(source_lines, start=1):
-            paginator.add_line(f"{index} {line}")
-        for page in paginator.pages:
-            await ctx.send(page)
-extensions = ['Fun', 'Utility', 'Images']
+async def source(ctx):
+    embed=discord.Embed(title='Sir KomodoBot\'s Source')
+    embed.description = 'Here is my repo link: https://github.com/MrKomodoDragon/sir-komodobot\n\nDon\'t forget to leave a star!\n(Also, [please respect the license!](https://github.com/MrKomodoDragon/sir-komodobot/blob/main/LICENSE))'
+    await ctx.send(embed=embed)
+extensions = ['Fun', 'Utility', 'Images', 'jishaku']
 
 for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")
 
-bot.load_extension('jishaku')
+
 
 bot.run(TOKEN)
