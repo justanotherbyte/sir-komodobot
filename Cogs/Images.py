@@ -34,7 +34,7 @@ class Images(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def pixel(ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+    async def pixel(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
             if thing == None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
@@ -49,7 +49,7 @@ class Images(commands.Cog):
             await ctx.send(file=file)
         
     @commands.command()
-    async def deepfry(ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+    async def deepfry(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
             if thing == None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))

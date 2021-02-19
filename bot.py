@@ -237,7 +237,7 @@ async def on_command_error(ctx, error):
         cmd = ctx.invoked_with
         cmds = [cmd.name for cmd in bot.commands]
         match = difflib.get_close_matches(cmd, cmds, 1)
-        await ctx.send(f'Command `{cmd}` not found, maybe you meant `{match}`?')
+        await ctx.send(f'Command `{cmd}` not found, maybe you meant `{match[0]}`?')
     raise error
 
 @bot.command()
