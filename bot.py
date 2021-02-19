@@ -432,20 +432,14 @@ async def xkcdsearch(ctx, *, search):
             embed.set_footer(
                 text=f"Comic Released on: {comix['month']}/{comix['day']}/{comix['year']} (view more comics at https://xkcd.com)")
             await ctx.send(f'{relevance}', embed=embed)
-@bot.event
-async def on_message_delete(message):
-  bot.snipes[message.channel.id] = message
+
 
 
 @bot.command()
-async def snipe(ctx, *, channel: discord.TextChannel = None):
-  channel = channel or ctx.channel
-  try:
-    msg = bot.snipes[channel.id]
-  except KeyError:
-    return await ctx.send('Nothing to snipe!')
-  # one liner, dont complain
-  await ctx.send(embed=discord.Embed(description=msg.content, color=msg.author.color).set_author(name=str(msg.author), icon_url=str(msg.author.avatar_url)))
+async def snipe(ctx):
+    await ctx.send('Snipe Bad, I wont do it. People delet messages for reson, why u tryna peek at them? <:angery:747680299311300639>')
+
+
 
 @bot.command()
 async def charinfo(ctx, *, characters: str):
