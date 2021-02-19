@@ -207,5 +207,11 @@ class Fun(commands.Cog):
         roast = await dagpi.roast()
         await ctx.send(f"**{member.name}**, {roast}")
 
+    @commands.command()
+    async def top(ctx, subreddit):
+        subreddit = await reddit.subreddit(subreddit)
+        top_posts = subreddit.top("hour")
+        await ctx.send(top_posts)
+
 def setup(bot):
     bot.add_cog(Fun(bot))

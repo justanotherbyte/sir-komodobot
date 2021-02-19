@@ -480,7 +480,7 @@ async def source(ctx):
     embed=discord.Embed(title='Sir KomodoBot\'s Source')
     embed.description = 'Here is my repo link: https://github.com/MrKomodoDragon/sir-komodobot\n\nDon\'t forget to leave a star!\n(Also, [please respect the license!](https://github.com/MrKomodoDragon/sir-komodobot/blob/main/LICENSE))'
     await ctx.send(embed=embed)
-extensions = ['Fun', 'Utility', 'Images', 'jishaku']
+extensions = ['Fun', 'Utility', 'Images', 'jishaku', 'Socket']
 
 for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")
