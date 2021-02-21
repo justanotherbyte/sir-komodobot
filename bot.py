@@ -494,7 +494,7 @@ async def halptest(ctx):
             embed.add_field(name=f'{cmd.name} {cmd.signature}', value=f'What it does: {cmd.description}\nExample: {ctx.prefix}{cmd.brief}')
     await ctx.send(embed=embed)
 
-extensions = ['Fun', 'Utility', 'Images', 'jishaku', 'Socket']
+extensions = ['Fun', 'Utility', 'Images', 'jishaku', 'Socket', 'Music']
 
 for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")
