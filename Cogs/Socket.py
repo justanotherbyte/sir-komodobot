@@ -22,7 +22,9 @@ class socket(commands.Cog):
         11: "HEARTBEAT_ACK",
         12: "GUILD_SYNC"
     }
-
+    self.bot.socket_stats = Counter()
+    self.bot.socket_receive = 0
+    self.bot.start_time = time.time()
   @commands.Cog.listener()
   async def on_command_error(self, ctx, error):
     self.bot.socket_stats["COMMAND_ERROR"] += 1

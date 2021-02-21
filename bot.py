@@ -79,7 +79,7 @@ class MyHelp(commands.MinimalHelpCommand):
     async def send_command_help(self, command): 
         ctx = self.context
         embed = discord.Embed(title=self.get_command_signature(command))
-        embed.add_field(name="Help", value=command.help)
+        embed.add_field(name="Help", value=command.description)
         alias = command.aliases
         if alias:
             embed.add_field(name="Aliases", value=", ".join(alias), inline=False)
@@ -381,7 +381,7 @@ async def info(ctx):
                 if '#' in l:
                     cm += 1
                 ls += 1
-    embed = discord.Embed(title='Information about Sir KomodoBot', description='My owner is **,,MrKomodoDragon#7975**')
+    embed = discord.Embed(title='Information about Sir KomodoBot', description=f'My owner is **,,MrKomodoDragon#7975**\n**Amount of Guilds:** {len(bot.guilds)}\n**Amount of members watched:** {len(bot.users)}\n**Amounnt of cogs loaded:** {len(bot.cogs)}\n**Amount of commands:** {len(bot.commands)}')
     embed.add_field(name='System Info', value=f'```py\nCPU Usage: {process.cpu_percent()}%\nMemory Usage: {humanize.naturalsize(process.memory_full_info().rss)}\nPID: {process.pid}\nThread(s): {process.num_threads()}```', inline=False)
     embed.add_field(name='Websocket Latency:', value=f"```py\n{round(bot.latency*1000)} ms```")
     embed.add_field(name='API Latency', value=f'```py\n{round(api_latency)} ms```')
@@ -480,6 +480,20 @@ async def source(ctx):
     embed=discord.Embed(title='Sir KomodoBot\'s Source')
     embed.description = 'Here is my repo link: https://github.com/MrKomodoDragon/sir-komodobot\n\nDon\'t forget to leave a star!\n(Also, [please respect the license!](https://github.com/MrKomodoDragon/sir-komodobot/blob/main/LICENSE))'
     await ctx.send(embed=embed)
+
+@bot.command()
+async def halptest(ctx):
+    embed = discord.Embed()
+    cog = bot.get_cog("Fun").get_commands()
+    for cmd in cog:
+        alias = cmd.aliases
+        if alias:
+            embed.add_field(name=f'{cmd.name} {cmd.signature}',
+                            value=f'What it does: {cmd.description}\nAliases: {", ".join(alias)}\nExample: {ctx.prefix}{cmd.brief}')   # ", ".join(alias)
+        else:
+            embed.add_field(name=f'{cmd.name} {cmd.signature}', value=f'What it does: {cmd.description}\nExample: {ctx.prefix}{cmd.brief}')
+    await ctx.send(embed=embed)
+
 extensions = ['Fun', 'Utility', 'Images', 'jishaku', 'Socket']
 
 for extension in extensions:
