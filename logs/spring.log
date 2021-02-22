@@ -71,3 +71,39 @@
 2021-02-21 16:25:37.920 ERROR 16446 --- [pool-1-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
 2021-02-21 16:26:37.919 ERROR 16446 --- [pool-1-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
 2021-02-21 16:27:37.914 ERROR 16446 --- [pool-1-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:28:37.912 ERROR 16446 --- [pool-1-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:28:53.375  INFO 16446 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:57918 -- CloseStatus[code=1006, reason=]
+2021-02-21 16:28:53.376  INFO 16446 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-02-21 16:29:06.956  INFO 16446 --- [XNIO-1 task-6] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:58145
+2021-02-21 16:29:06.961  INFO 16446 --- [XNIO-1 task-6] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:58145
+2021-02-21 16:29:06.963  WARN 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
+2021-02-21 16:29:06.968 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:30:06.969 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:31:06.963 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:32:06.967 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:32:12.767  INFO 16446 --- [XNIO-1 task-7] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita rakita"
+2021-02-21 16:32:13.606  INFO 16446 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita rakita
+2021-02-21 16:32:13.880  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 40}
+2021-02-21 16:32:13.881  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAygIAYEphZ2FtZSBUaGFuZGhpcmFtIC0gUmFraXRhIFJha2l0YSBSYWtpdGEgTHlyaWMgfCBEaGFudXNoIHwgU2FudGhvc2ggTmFyYXlhbmFuIHwgS2FydGhpayBTdWJiYXJhagAQU29ueSBNdXNpYyBTb3V0aAAAAAAAA+gAAAs1VW1hTUtfT2ZQdwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVVbWFNS19PZlB3AAd5b3V0dWJlAAAAAAAAAAA=", "noReplace": false, "startTime": "0"}
+2021-02-21 16:32:14.105  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "31698dad234a3ab44e5223a186a5cee8", "event": {"token": "6270fd73d0ea4788", "guild_id": "336642139381301249", "endpoint": "us-central910.discord.media:443"}}
+2021-02-21 16:33:06.969 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:34:06.971 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:35:06.966 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:35:40.126  INFO 16446 --- [XNIO-1 task-9] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:andha kanna pathaka"
+2021-02-21 16:35:40.638  INFO 16446 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: andha kanna pathaka
+2021-02-21 16:36:06.967 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:36:31.889  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAywIAYU1hc3RlciAtIEFuZGhhIEthbm5hIFBhYXRoYWFrYWEgTHlyaWMgfCBUaGFsYXBhdGh5IFZpamF5IHwgQW5pcnVkaCBSYXZpY2hhbmRlciB8IExva2VzaCBLYW5hZ2FyYWoAEFNvbnkgTXVzaWMgU291dGgAAAAAAAMFcAALM2hWYzNNMUlFZTAAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0zaFZjM00xSUVlMAAHeW91dHViZQAAAAAAAAAA", "noReplace": false, "startTime": "0"}
+2021-02-21 16:37:06.967 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:38:06.970 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:39:06.970 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:39:56.771  INFO 16446 --- [XNIO-1 task-11] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rickroll"
+2021-02-21 16:39:57.409  INFO 16446 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rickroll
+2021-02-21 16:39:57.420  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAmwIALVJpY2sgQXN0bGV5IC0gTmV2ZXIgR29ubmEgR2l2ZSBZb3UgVXAgKFZpZGVvKQAUT2ZmaWNpYWwgUmljayBBc3RsZXkAAAAAAANACAALZFF3NHc5V2dYY1EAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQAHeW91dHViZQAAAAAAAAAA", "noReplace": false, "startTime": "0"}
+2021-02-21 16:40:06.968 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:40:31.340  INFO 16446 --- [XNIO-1 task-13] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-02-21 16:40:31.985  INFO 16446 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-02-21 16:40:32.200  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "780830922123640903", "volume": 40}
+2021-02-21 16:40:32.201  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "780830922123640903", "track": "QAAAygIAYEphZ2FtZSBUaGFuZGhpcmFtIC0gUmFraXRhIFJha2l0YSBSYWtpdGEgTHlyaWMgfCBEaGFudXNoIHwgU2FudGhvc2ggTmFyYXlhbmFuIHwgS2FydGhpayBTdWJiYXJhagAQU29ueSBNdXNpYyBTb3V0aAAAAAAAA+gAAAs1VW1hTUtfT2ZQdwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVVbWFNS19PZlB3AAd5b3V0dWJlAAAAAAAAAAA=", "noReplace": false, "startTime": "0"}
+2021-02-21 16:40:32.462  INFO 16446 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "780830922123640903", "sessionId": "31698dad234a3ab44e5223a186a5cee8", "event": {"token": "cc00500fae2ed294", "guild_id": "780830922123640903", "endpoint": "us-west4044.discord.media:443"}}
+2021-02-21 16:41:06.967 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-02-21 16:43:06.964 ERROR 16446 --- [pool-2-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
