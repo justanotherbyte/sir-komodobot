@@ -11,6 +11,8 @@ import os
 from utils import fuzzy
 import zlib
 import io
+from jishaku.functools import executor_function
+import googletrans
 
 #Everything Related to the rtfm command, I took from Robo Danny. Check out the bot at https://github.com/Rapptz/RoboDanny
 
@@ -45,6 +47,7 @@ class SphinxObjectFileReader:
                 yield buf[:pos].decode('utf-8')
                 buf = buf[pos + 1:]
                 pos = buf.find(b'\n')
+
 
 
 
@@ -177,7 +180,7 @@ class Utility(commands.Cog):
 
         e.description = '\n'.join(f'[`{key}`]({url})' for key, url in matches)
         await ctx.send(embed=e)
-
+    
     @commands.command(description="Checks Latency of Bot")
     async def ping(self, ctx):
         x = await ctx.send('Pong!')
@@ -209,7 +212,17 @@ class Utility(commands.Cog):
     async def rtfm_aiohttp(self, ctx, *, thing: str = None):
         await self.uhh_rtfm_pls(ctx, "aiohttp", thing)
 
+    @executor_function
+    def translate_text(self, destination, args: str):
+        translator = googletrans.Translator()
+        translated_text = translator.translate(args, dest=destination)
+        return translated_text
 
+
+    @commands.command()
+    async def translate(self, ctx, destination, text_to_translate):
+        result = await self.translate_text(destination, text_to_translate)
+        return await ctx.send(result)
 
 def setup(bot):
     bot.add_cog(Utility(bot))

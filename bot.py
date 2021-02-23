@@ -25,6 +25,8 @@ import unicodedata
 import similar
 import inspect
 import difflib
+from jishaku.functools import executor_function
+import googletrans
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -483,16 +485,36 @@ async def source(ctx):
 
 @bot.command()
 async def halptest(ctx):
-    embed = discord.Embed()
-    cog = bot.get_cog("Fun").get_commands()
+    page_embed = discord.Embed()
+    page_embed.title = "Help command"
+    page_embed.description = "```<> means argument is required\n[]means argument is optional```\nReact with 🥳 to view the commands for fun, and react with 🏠 to go back to the home page. React with "
+    fun_embed = discord.Embed()
+    cog = bot.get_cog('Fun').get_commands()
     for cmd in cog:
         alias = cmd.aliases
         if alias:
-            embed.add_field(name=f'{cmd.name} {cmd.signature}',
-                            value=f'What it does: {cmd.description}\nAliases: {", ".join(alias)}\nExample: {ctx.prefix}{cmd.brief}')   # ", ".join(alias)
+            fun_embed.add_field(name=f'{cmd.name} {cmd.signature}',
+                                value=f'What it does: {cmd.description}\nAliases: {", ".join(alias)}\nExample: {ctx.prefix}{cmd.brief}')   # ", ".join(alias)
         else:
-            embed.add_field(name=f'{cmd.name} {cmd.signature}', value=f'What it does: {cmd.description}\nExample: {ctx.prefix}{cmd.brief}')
-    await ctx.send(embed=embed)
+            fun_embed.add_field(name=f'{cmd.name} {cmd.signature}',
+                                value=f'What it does: {cmd.description}\nExample: {ctx.prefix}{cmd.brief}')
+
+    mesage = await ctx.send(embed=page_embed) 
+    await mesage.add_reaction('🏠')
+    await mesage.add_reaction('🥳')
+    
+
+    def check(reaction, user):
+        return str(reaction.emoji) in ['🥳', '🏠'] and user == ctx.author
+
+    def check_remove(reaction_remove, user_remove):
+        return str(reaction_remove.emoji) in ['🥳', '🏠'] and user_remove == ctx.author
+    while True:
+        reaction, user = await bot.wait_for('reaction_add', check=check)
+        if str(reaction.emoji) == '🥳':
+            await mesage.edit(embed=fun_embed)
+        if str(reaction.emoji) == '🏠':
+            await mesage.edit(embed=page_embed)
 
 extensions = ['Fun', 'Utility', 'Images', 'jishaku', 'Socket', 'Music']
 
