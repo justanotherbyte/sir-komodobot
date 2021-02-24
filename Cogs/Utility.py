@@ -190,8 +190,8 @@ class Utility(commands.Cog):
 
     @commands.group(invoke_without_command=True,
                     aliases=[
-                        "read_the_fucking_manual", "rtfd",
-                        "read_the_fucking_doc", "read_tfm", "read_tfd"
+                        "read_the_friendly_manual", "rtfd",
+                        "read_the_friendly_doc", "read_tfm", "read_tfd"
                     ])
     async def rtfm(self, ctx, *, thing: str = None):
         await self.uhh_rtfm_pls(ctx, "latest", thing)

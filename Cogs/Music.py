@@ -68,7 +68,7 @@ class Music(commands.Cog):
                                                      rest_uri='http://0.0.0.0:2333',
                                                      password='youshallnotpass',
                                                      identifier='TEST',
-                                                     region='us_central')
+                                                     region='us_west')
 
         # Set our node hook callback
         node.set_hook(self.on_event_hook)
@@ -215,7 +215,7 @@ class Music(commands.Cog):
         if not player.current or not controller.queue._queue:
             return await ctx.send('There are no songs currently in the queue.', delete_after=20)
 
-        upcoming = list(itertools.islice(controller.queue._queue, 0, 5))
+        upcoming = list(itertools.islice(controller.queue._queue, 0, 500))
 
         fmt = '\n'.join(f'**`{str(song)}`**' for song in upcoming)
         embed = discord.Embed(

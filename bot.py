@@ -24,7 +24,6 @@ import time
 import unicodedata
 import similar
 import inspect
-import difflib
 from jishaku.functools import executor_function
 import googletrans
 load_dotenv()
@@ -238,7 +237,7 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         cmd = ctx.invoked_with
         cmds = [cmd.name for cmd in bot.commands]
-        match = difflib.get_close_matches(cmd, cmds, 1)
+        match = similar.best_match(cmd, cmds)
         await ctx.send(f'Command `{cmd}` not found, maybe you meant `{match[0]}`?')
     raise error
 
@@ -262,7 +261,8 @@ async def gif(ctx, *, img, num=1):
         link = f"http://api.giphy.com/v1/gifs/search?q={img}&api_key=0wltGsImBHY0GZGudUZG8aa6xybPJDit&limit={img}"
         async with cs.get(link) as r:
             res = await r.json()
-            await ctx.send(res["data"][num-1]["url"])
+            img = res["data"][num-1]["url"]
+            await ctx.send(f'{img}\nhttps://user-images.githubusercontent.com/74436682/108932641-8e088c80-75fe-11eb-9d69-da16519a41a8.png')
 
 @bot.command(help='Posts a random bignate comic', brief='bignate')
 async def bignate(ctx):
