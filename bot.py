@@ -103,9 +103,8 @@ async def on_guild_join(guild):
 
 @bot.command(description='Sets the prefix for Sir KomodoBot to use in your server.')
 async def setprefix(ctx, prefix: str):
-    db = await aiosqlite.connect('config.db')
-    await db.execute(f'update config set prefix = (?) where guild_id = {ctx.guild.id}', (prefix,))
-    await db.commit()
+    await bot.db.execute(f'update config set prefix = (?) where guild_id = {ctx.guild.id}', (prefix,))
+    await bot.db.commit()
 
 @bot.command(description='Kicks a member, Admin Only')
 @commands.has_permissions(administrator=True)
