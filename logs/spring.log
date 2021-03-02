@@ -222,3 +222,8 @@
 2021-03-02 13:14:56.570  INFO 1982 --- [XNIO-1 task-7] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:60913
 2021-03-02 13:14:56.571  WARN 1982 --- [pool-28-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
 2021-03-02 13:22:56.563 ERROR 1982 --- [pool-28-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-02 13:28:32.816  INFO 1982 --- [XNIO-1 I/O-1] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:60913 -- CloseStatus[code=1006, reason=]
+2021-03-02 13:28:32.818  INFO 1982 --- [XNIO-1 I/O-1] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-03-02 13:28:45.449  INFO 1982 --- [XNIO-1 task-8] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61093
+2021-03-02 13:28:45.463  INFO 1982 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:61093
+2021-03-02 13:28:45.464  WARN 1982 --- [pool-29-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
