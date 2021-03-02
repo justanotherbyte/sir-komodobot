@@ -227,3 +227,4 @@
 2021-03-02 13:28:45.449  INFO 1982 --- [XNIO-1 task-8] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:61093
 2021-03-02 13:28:45.463  INFO 1982 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:61093
 2021-03-02 13:28:45.464  WARN 1982 --- [pool-29-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
+2021-03-02 13:33:45.460 ERROR 1982 --- [pool-29-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
