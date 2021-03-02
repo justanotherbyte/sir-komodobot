@@ -13,6 +13,12 @@ import zlib
 import io
 from jishaku.functools import executor_function
 import googletrans
+import pathlib
+import psutil
+import time
+import humanize
+import gtts
+import functools
 
 #Everything Related to the rtfm command, I took from Robo Danny. Check out the bot at https://github.com/Rapptz/RoboDanny
 
@@ -223,6 +229,75 @@ class Utility(commands.Cog):
     async def translate(self, ctx, destination, text_to_translate):
         result = await self.translate_text(destination, text_to_translate)
         return await ctx.send(result)
+    
+    @commands.command()
+    async def commits(self, ctx):
+        async with self.bot.session.get('https://api.github.com/repos/ppotatoo/SYSTEM32/commits') as f:
+            resp = await f.json()
+        embed = discord.Embed(description="\\n".join(
+            f"\[`{commit['sha'][:6]}`]({commit['html_url']}) {commit['commit']['message']}" for commit in resp[:5]), color=self.bot.embed_color)
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def info(self, ctx):
+        p = pathlib.Path('./')
+        process = psutil.Process()
+        start = time.perf_counter()
+        await ctx.trigger_typing()
+        end = time.perf_counter()
+        final = end-start
+        api_latency = round(final*1000, 3)
+        cm = cr = fn = cl = ls = fc = 0
+        for f in p.rglob('*.py'):
+            if str(f).startswith("venv"):
+                continue
+            fc += 1
+            with f.open() as of:
+                for l in of.readlines():
+                    l = l.strip()
+                    if l.startswith('class'):
+                        cl += 1
+                    if l.startswith('def'):
+                        fn += 1
+                    if l.startswith('async def'):
+                        cr += 1
+                    if '#' in l:
+                        cm += 1
+                    ls += 1
+        async with self.bot.session.get('https://api.github.com/repos/MrKomodoDragon/sir-komodobot/commits') as f:
+            resp = await f.json()
+        embed = discord.Embed(title='Information about Sir KomodoBot',
+                            description=f'My owner is **,,MrKomodoDragon#7975**\n**Amount of Guilds:** {len(self.bot.guilds)}\n**Amount of members watched:** {len(self.bot.users)}\n**Amounnt of cogs loaded:** {len(self.bot.cogs)}\n**Amount of commands:** {len(self.bot.commands)}')
+        embed.add_field(name="Recent Commits", value="\n".join(
+            f"[`{commit['sha'][:6]}`]({commit['html_url']}) {commit['commit']['message']}" for commit in resp[:5]))
+        embed.add_field(name='System Info',
+                        value=f'```py\nCPU Usage: {process.cpu_percent()}%\nMemory Usage: {humanize.naturalsize(process.memory_full_info().rss)}\nPID: {process.pid}\nThread(s): {process.num_threads()}```', inline=False)
+        embed.add_field(name='Websocket Latency:',
+                        value=f"```py\n{round(self.bot.latency*1000)} ms```")
+        embed.add_field(name='API Latency',
+                        value=f'```py\n{round(api_latency)} ms```')
+        embed.add_field(name='File Stats:',
+                        value=f"```py\nFiles: {fc}\nLines: {ls:,}\nClasses: {cl}\nFunctions: {fn}\nCoroutines: {cr}\nComments: {cm:,}```", inline=False)
+        await ctx.send(embed=embed)
+
+    @commands.command(name="tts", aliases=['texttospeech', 'speak'],
+                                             brief="None|Send Messages+Attach Files", usage="tts <text>;;tts Text",
+                                              description="Text-to-speech engine. Returns an MP3 file that will read out your input text.")
+    async def _tts(self, ctx, *, text):
+        def do_tts():
+            buffer = io.BytesIO()
+            tts = gtts.gTTS(text, lang='en')
+            tts.write_to_fp(buffer)
+            buffer.seek(0)
+            return buffer
+
+        original = await ctx.send(f"<a:loading:747680523459231834> Loading... (Long strings of text will take a long time)")
+        partial = functools.partial(do_tts)
+        fp = await ctx.bot.loop.run_in_executor(None, partial)
+        await original.delete()
+        await ctx.send(file=discord.File(fp=fp, filename="lambda_tts.mp3"))
+
+
 
 def setup(bot):
     bot.add_cog(Utility(bot))

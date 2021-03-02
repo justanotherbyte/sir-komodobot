@@ -26,6 +26,10 @@ import similar
 import inspect
 from jishaku.functools import executor_function
 import googletrans
+import asyncpg
+import sys
+from difflib import get_close_matches
+from fuzzywuzzy import process
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -52,8 +56,10 @@ async def get_prefix(bot, message):
 intents = discord.Intents.all()
 bot = Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents, )
 bot.db = bot.loop.run_until_complete(aiosqlite.connect('config.db'))
+#bot.economy = bot.loop.run_until_complete(asyncpg.connect('postgresql://'))
 bot.remove_command('help')
-bot.snipes = {}
+bot.session = aiohttp.ClientSession(
+    headers={"User-Agent": f"python-requests/2.25.1 The Anime Bot/1.1.0 Python/{sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]} aiohttp/{aiohttp.__version__}"})
 
 
 message_cooldown = commands.CooldownMapping.from_cooldown(
@@ -67,6 +73,7 @@ async def on_ready():
 
 
 @bot.command()
+@commands.is_owner()
 async def servers(ctx):
     activeservers = bot.guilds
     for guild in activeservers:
@@ -251,10 +258,36 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.CommandNotFound):
         cmd = ctx.invoked_with
         cmds = [cmd.name for cmd in bot.commands]
-        match = similar.best_match(cmd, cmds)
-        await ctx.send(f'Command `{cmd}` not found, maybe you meant `{match[0]}`?')
+        # cmds = [cmd.name for cmd in bot.commands if not cmd.hidden] # use this to stop showing hidden commands as suggestions
+        matches = get_close_matches(cmd, cmds)
+        if len(matches) > 0:
+            await ctx.send(f'Command "{cmd}" not found, maybe you meant "{matches[0]}"?')
+        else:
+          await ctx.send(f'Command "{cmd}" not found, use the help command to know what commands are available')
     raise error
 
+@bot.listen('on_message')
+async def on_message(message):
+    if re.search(r';(.*?);', message.content):
+        string = message.content
+        list_of_words = string.split()
+        message_to_send = []
+        for i in list_of_words:
+            if i.startswith(';'):
+                emoji_to_convert = i.strip(';')
+                emoji = str(process.extract(emoji_to_convert, bot.emojis, limit=1)[0][0])
+            else:
+                pass
+        await message.channel.send(emoji)
+
+
+@bot.listen('on_message_edit')
+async def on_message_edit(old, new):
+    if old.embeds != []:
+        return
+    if new.embeds != []:
+        return
+    await bot.process_commands(new)
 
 @bot.command()
 async def xkcd(ctx):
@@ -381,43 +414,6 @@ async def leave(ctx):
     await ctx.guild.leave()
 
 
-@bot.command()
-async def info(ctx):
-    p = pathlib.Path('./')
-    process = psutil.Process()
-    start = time.perf_counter()
-    await ctx.trigger_typing()
-    end = time.perf_counter()
-    final = end-start
-    api_latency = round(final*1000, 3)
-    cm = cr = fn = cl = ls = fc = 0
-    for f in p.rglob('*.py'):
-        if str(f).startswith("venv"):
-            continue
-        fc += 1
-        with f.open() as of:
-            for l in of.readlines():
-                l = l.strip()
-                if l.startswith('class'):
-                    cl += 1
-                if l.startswith('def'):
-                    fn += 1
-                if l.startswith('async def'):
-                    cr += 1
-                if '#' in l:
-                    cm += 1
-                ls += 1
-    embed = discord.Embed(title='Information about Sir KomodoBot',
-                          description=f'My owner is **,,MrKomodoDragon#7975**\n**Amount of Guilds:** {len(bot.guilds)}\n**Amount of members watched:** {len(bot.users)}\n**Amounnt of cogs loaded:** {len(bot.cogs)}\n**Amount of commands:** {len(bot.commands)}')
-    embed.add_field(name='System Info',
-                    value=f'```py\nCPU Usage: {process.cpu_percent()}%\nMemory Usage: {humanize.naturalsize(process.memory_full_info().rss)}\nPID: {process.pid}\nThread(s): {process.num_threads()}```', inline=False)
-    embed.add_field(name='Websocket Latency:',
-                    value=f"```py\n{round(bot.latency*1000)} ms```")
-    embed.add_field(name='API Latency',
-                    value=f'```py\n{round(api_latency)} ms```')
-    embed.add_field(name='File Stats:',
-                    value=f"```py\nFiles: {fc}\nLines: {ls:,}\nClasses: {cl}\nFunctions: {fn}\nCoroutines: {cr}\nComments: {cm:,}```", inline=False)
-    await ctx.send(embed=embed)
 
 
 @bot.command()

@@ -63,5 +63,20 @@ class Images(commands.Cog):
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
 
+    @commands.command()
+    async def ascii(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.ascii(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
+
 def setup(bot):
     bot.add_cog(Images(bot))

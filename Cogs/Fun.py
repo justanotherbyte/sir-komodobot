@@ -10,6 +10,9 @@ import re
 import aiohttp
 import asyncpraw
 from asyncdagpi import ImageFeatures, Client
+import similar
+from utils.fuzzy import finder
+from jishaku.paginators import WrappedPaginator, PaginatorInterface
 
 load_dotenv()
 
@@ -156,6 +159,25 @@ class Fun(commands.Cog):
         embed.set_footer(text="Powered by https://dog.ceo")
         await ctx.send(embed=embed)
 
+    class PaginatorEmbedInterface(PaginatorInterface):
+        def __init__(self, *args, **kwargs):
+            self._embed = discord.Embed()
+            super().__init__(*args, **kwargs)
+
+        @property
+        def send_kwargs(self) -> dict:
+            display_page = self.display_page
+            self._embed.description = f"**:7298_Nitro_Gif: Emoji List**\n{self.pages[display_page]}"
+            self._embed.set_footer(
+                text=f'Page {display_page + 1}/{self.page_count}')
+            return {'embed': self._embed}
+
+        max_page_size = 2048
+
+        @property
+        def page_size(self) -> int:
+            return self.paginator.max_size
+
     @commands.command(description='Look at some red pandas', brief='birb')
     @commands.cooldown(1, 3.0, BucketType.member)
     async def meme(self, ctx):
@@ -210,6 +232,36 @@ class Fun(commands.Cog):
         subreddit = await reddit.subreddit(subreddit)
         top_posts = subreddit.top("hour")
         await ctx.send(top_posts)
+    
+    @commands.command()
+    async def emoji(self, ctx, *, search: str = None):
+        lists = []
+        paginator = WrappedPaginator(max_size=500, prefix="", suffix="")
+        if search != None:
+            emojis = finder(search,
+                            self.bot.emojis,
+                            key=lambda i: i.name,
+                            lazy=False)
+            if emojis == []:
+                return await ctx.send("no emoji found")
+            for i in emojis:
+                if i.animated == True:
+                    lists.append(f"{str(i)} `<a:{i.name}:{i.id}>`")
+                else:
+                    lists.append(f"{str(i)} `<:{i.name}:{i.id}>`")
+            paginator.add_line("\n".join(lists))
+            interface = self.PaginatorEmbedInterface(ctx.bot,
+                                           paginator,
+                                           owner=ctx.author)
+            return await interface.send_to(ctx)
+        for i in self.bot.emojis:
+            if i.animated == True:
+                lists.append(f"{str(i)} `<a:{i.name}:{i.id}>`")
+            else:
+                lists.append(f"{str(i)} `<:{i.name}:{i.id}>`")
+        paginator.add_line("\n".join(lists))
+        interface = self.PaginatorEmbedInterface(ctx.bot, paginator, owner=ctx.author)
+        await interface.send_to(ctx)
 
 def setup(bot):
     bot.add_cog(Fun(bot))
