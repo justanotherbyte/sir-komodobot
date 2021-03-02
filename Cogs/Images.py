@@ -137,7 +137,110 @@ class Images(commands.Cog):
         img = await dagpi.image_process(ImageFeatures.triggered(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
-    
 
+    @commands.command()
+    async def wasted(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.wasted(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
+
+    @commands.command()
+    async def invert(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.invert(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
+
+    @commands.command()
+    async def blur(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.blur(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
+
+    @commands.command()
+    async def sobel(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.sobel(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
+
+    @commands.command()
+    async def rgb(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.rgb(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
+
+    @commands.command()
+    async def hog(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.hog(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
+
+    @commands.command()
+    async def triangle(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
+        async with ctx.channel.typing():
+            if thing == None:
+                url = str(ctx.author.avatar_url_as(static_format="png"))
+            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+                url = str(thing.url)
+            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+                url = str(thing.avatar_url_as(static_format="png"))
+            else:
+                url = thing
+        img = await dagpi.image_process(ImageFeatures.triangle(), url)
+        file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
+        await ctx.send(file=file)
 def setup(bot):
     bot.add_cog(Images(bot))

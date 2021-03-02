@@ -22,6 +22,11 @@ import functools
 
 #Everything Related to the rtfm command, I took from Robo Danny. Check out the bot at https://github.com/Rapptz/RoboDanny
 
+"""
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at http://mozilla.org/MPL/2.0/.
+"""
 
 class SphinxObjectFileReader:
     BUFSIZE = 16 * 1024
