@@ -30,6 +30,9 @@ import asyncpg
 import sys
 from difflib import get_close_matches
 from fuzzywuzzy import process
+from utils.HelpPaginator import CannotPaginate, HelpPaginator
+import difflib
+import traceback
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -79,7 +82,7 @@ async def servers(ctx):
     for guild in activeservers:
         await ctx.send(f"{guild.name}: {guild.id}")
 
-
+"""
 class MyHelp(commands.MinimalHelpCommand):
     async def send_command_help(self, command):
         ctx = self.context
@@ -102,7 +105,7 @@ class MyHelp(commands.MinimalHelpCommand):
 
 
 bot.help_command = MyHelp()
-
+"""
 
 @bot.event
 async def on_guild_join(guild):
@@ -276,9 +279,12 @@ async def on_message(message):
             if i.startswith(';'):
                 emoji_to_convert = i.strip(';')
                 emoji = str(process.extract(emoji_to_convert, bot.emojis, limit=1)[0][0])
+                message_to_send.append(emoji)
             else:
                 pass
-        await message.channel.send(emoji)
+        if message:
+            await message.channel.send(" ".join(message_to_send))
+        else: return
 
 
 @bot.listen('on_message_edit')
@@ -490,6 +496,41 @@ async def getpic(ctx, url: str):
     except:
         await ctx.send('Couldn\'t screenshot due to error')
 
+#Credit to cryptex for help command
+@bot.command(name="help")
+async def _help(ctx, *, command: str = None):
+    """Shows help about a command or the bot"""
+    try:
+        if command is None:
+            p = await HelpPaginator.from_bot(ctx)
+        else:
+            entity = bot.get_cog(command) or bot.get_command(command)
+
+            if entity is None:
+                clean = command.replace('@', '@\u200b')
+                failed_command = re.match(f"^({ctx.prefix})\s*(.*)",
+                                          f"ovo {clean}",
+                                          flags=re.IGNORECASE).group(2)
+                matches = difflib.get_close_matches(failed_command,
+                                                    ctx.bot.command_list)
+                if not matches:
+                    return
+                return await ctx.send(
+                    f"Command or category '{clean}' not found. Did you mean `{matches[0]}`?"
+                )
+            elif isinstance(entity, commands.Command):
+                p = await HelpPaginator.from_command(ctx, entity)
+            else:
+                p = await HelpPaginator.from_cog(ctx, entity)
+
+        await p.paginate()
+    except Exception as error:
+        print('Ignoring exception in command {}:'.format(ctx.command),
+              file=sys.stderr)
+        traceback.print_exception(type(error),
+                                  error,
+                                  error.__traceback__,
+                                  file=sys.stderr)
 
 @bot.command()
 async def redirectcheck(ctx, website):
