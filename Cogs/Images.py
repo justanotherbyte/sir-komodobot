@@ -334,7 +334,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         img = await dagpi.image_process(ImageFeatures.satan(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
@@ -350,7 +350,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         img = await dagpi.image_process(ImageFeatures.hitler(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
@@ -366,7 +366,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         img = await dagpi.image_process(ImageFeatures.obama(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
@@ -382,7 +382,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         img = await dagpi.image_process(ImageFeatures.bad(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
@@ -398,7 +398,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         img = await dagpi.image_process(ImageFeatures.sith(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
@@ -414,7 +414,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         img = await dagpi.image_process(ImageFeatures.jail(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
@@ -430,7 +430,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         img = await dagpi.image_process(ImageFeatures.rainbow(), url)
         file = discord.File(fp=img.image, filename=f"pixel.{img.format}")
         await ctx.send(file=file)
@@ -446,7 +446,7 @@ class Images(commands.Cog):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            url = url.replace("cdn.discordapp.com", "media.discordapp.net")
+                url = url.replace("cdn.discordapp.com", "media.discordapp.net")
         image = await client.magic(url)
         file = discord.File(image, 'magic.gif')
         await ctx.send(file=file)
