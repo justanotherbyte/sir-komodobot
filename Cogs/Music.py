@@ -81,11 +81,7 @@ class Music(commands.Cog):
             controller.next.set()
 
     def get_controller(self, value: Union[commands.Context, wavelink.Player]):
-        if isinstance(value, commands.Context):
-            gid = value.guild.id
-        else:
-            gid = value.guild_id
-
+        gid = value.guild.id if isinstance(value, commands.Context) else value.guild_id
         try:
             controller = self.controllers[gid]
         except KeyError:

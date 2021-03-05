@@ -53,7 +53,7 @@ async def get_prefix(bot, message):
     try:
         cursor = await bot.db.execute(f'SELECT prefix FROM config WHERE guild_id = {message.guild.id}')
         prefix = await cursor.fetchone()
-        return prefix if prefix else "kb+"
+        return prefix or "kb+"
     except:
         return 'kb+'
 intents = discord.Intents.all()
@@ -106,7 +106,7 @@ async def kick(ctx, member: discord.Member, *, reason=None):
 async def rules(ctx, member: discord.Member):
     rules_channel = discord.utils.find(
         lambda m: "rule" in m.name, ctx.guild.channels)
-    if not rules_channel is None:
+    if rules_channel is not None:
         await member.send(f'{member.mention}, Please review the rules at <#{rules_channel.id}>')
 
 
@@ -150,10 +150,7 @@ async def mock(ctx, *, text):
     output_text = ""
     for char in text:
         if char.isalpha():
-            if random.random() > 0.5:
-                output_text += char.upper()
-            else:
-                output_text += char.lower()
+            output_text += char.upper() if random.random() > 0.5 else char.lower()
         else:
             output_text += char
     await ctx.send(output_text)
@@ -180,27 +177,26 @@ async def on_command_error(ctx, error):
 
 @bot.listen('on_message')
 async def on_message(message):
-    if re.search(r';(.*?);', message.content):
-        opt_in = await bot.pg.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', message.author.id)
-        whether_to_do_nitro = opt_in['opt_in']
-        if whether_to_do_nitro == True:
-            string = message.content
-            list_of_words = string.split()
-            message_to_send = []
-            for i in list_of_words:
-                if i.startswith(';'):
-                    emoji_to_convert = i.strip(';')
-                    emoji = str(process.extract(
-                        emoji_to_convert, bot.emojis, limit=1)[0][0])
-                    message_to_send.append(emoji)
-                else:
-                    pass
-            if message:
-                await message.channel.send(" ".join(message_to_send))
-            else:
-                return
-        else:
-            return
+    if not re.search(r';(.*?);', message.content):
+        return
+    opt_in = await bot.pg.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', message.author.id)
+    whether_to_do_nitro = opt_in['opt_in']
+    if whether_to_do_nitro != True:
+        return
+
+    string = message.content
+    list_of_words = string.split()
+    message_to_send = []
+    for i in list_of_words:
+        if i.startswith(';'):
+            emoji_to_convert = i.strip(';')
+            emoji = str(process.extract(
+                emoji_to_convert, bot.emojis, limit=1)[0][0])
+            message_to_send.append(emoji)
+    if message:
+        await message.channel.send(" ".join(message_to_send))
+    else:
+        return
 
 
 @bot.listen('on_message_edit')
@@ -456,7 +452,7 @@ async def redirectcheck(ctx, website):
     async with aiohttp.ClientSession(headers={'User-Agent': 'python-requests/2.20.0'}).get(website) as resp:
         soup = BeautifulSoup(await resp.text(), features="lxml")
         canonical = soup.find('link', {'rel': 'canonical'})
-        if canonical == None:
+        if canonical is None:
             return await ctx.send(f"`{resp.real_url}`")
         await ctx.send(f"`{canonical['href']}`")
 

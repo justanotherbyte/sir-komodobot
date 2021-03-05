@@ -226,8 +226,7 @@ class Utility(commands.Cog):
     @executor_function
     def translate_text(self, destination, args: str):
         translator = googletrans.Translator()
-        translated_text = translator.translate(args, dest=destination)
-        return translated_text
+        return translator.translate(args, dest=destination)
 
 
     @commands.command()
@@ -237,10 +236,10 @@ class Utility(commands.Cog):
     
     @commands.command()
     async def commits(self, ctx):
-        async with self.bot.session.get('https://api.github.com/repos/ppotatoo/SYSTEM32/commits') as f:
+        async with self.bot.session.get('https://api.github.com/repos/MrKomodoDragon/sir-komodobot/commits') as f:
             resp = await f.json()
-        embed = discord.Embed(description="\\n".join(
-            f"\[`{commit['sha'][:6]}`]({commit['html_url']}) {commit['commit']['message']}" for commit in resp[:5]), color=self.bot.embed_color)
+        embed = discord.Embed(description="\n".join(
+            f"[`{commit['sha'][:6]}`]({commit['html_url']}) {commit['commit']['message']}" for commit in resp[:5]), color=0x525a32)
         await ctx.send(embed=embed)
 
     @commands.command()
@@ -286,7 +285,7 @@ class Utility(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(name="tts", aliases=['texttospeech', 'speak'],
-                                             brief="None|Send Messages+Attach Files",
+                                             brief="tts hello",
                                               description="Text-to-speech engine. Returns an MP3 file that will read out your input text.")
     async def _tts(self, ctx, *, text):
         def do_tts():
