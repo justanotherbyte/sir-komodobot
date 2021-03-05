@@ -1,230 +1,407 @@
-2021-03-03 07:30:26.127  INFO 1982 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:63879 -- CloseStatus[code=1006, reason=]
-2021-03-03 07:30:26.236  INFO 1982 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2021-03-03 07:30:38.679  INFO 1982 --- [XNIO-1 task-14] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:65036
-2021-03-03 07:30:38.719  INFO 1982 --- [XNIO-1 task-14] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:65036
-2021-03-03 07:30:38.722  WARN 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
-2021-03-03 07:30:38.725 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:35:38.726 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:37:38.731 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:38:38.728 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:41:39.169 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:42:39.169 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:47:12.702 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:49:12.703 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:54:12.719 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 07:57:12.662 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:09:41.636 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:11:41.643 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:30:37.417 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:35:37.431 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:41:37.386 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:44:37.390 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:50:37.490 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:51:37.385 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:52:37.389 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:53:37.390 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:54:37.426 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:55:37.433 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:56:37.436 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:57:37.435 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:58:37.435 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 08:59:37.438 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:00:37.442 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:01:37.442 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:02:37.445 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:03:37.442 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:04:37.448 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:05:37.445 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:06:37.447 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:07:37.452 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:08:37.451 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:09:37.452 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:10:37.452 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:11:37.457 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:12:37.456 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:13:37.456 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:14:37.461 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:15:37.462 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:16:37.461 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:17:37.462 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:18:37.488 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:20:11.043 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:21:11.040 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:22:11.042 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:23:11.048 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:24:11.047 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:25:11.047 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:26:11.050 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:27:11.051 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:28:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:29:11.054 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:30:11.056 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:31:11.057 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:32:11.058 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:33:11.057 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:34:11.058 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:35:11.061 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:36:11.064 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:37:11.061 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:38:11.063 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:39:11.065 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:40:11.069 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:41:11.064 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:42:11.051 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:43:11.052 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:44:11.051 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:45:11.049 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:46:11.054 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:47:11.055 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:48:11.055 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:49:11.054 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:50:11.056 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:51:11.057 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:52:11.059 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:53:11.061 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:54:11.060 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:55:11.063 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:56:11.064 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:57:11.063 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:58:11.065 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 09:59:11.064 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:00:11.054 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:01:11.052 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:02:11.049 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:03:11.052 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:04:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:05:11.054 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:06:11.056 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:07:11.058 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:08:11.055 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:09:11.055 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:10:11.054 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:11:11.058 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:12:11.058 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:13:11.057 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:14:11.057 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:15:11.117 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:16:11.123 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:17:11.119 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:18:11.125 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:19:11.126 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:20:11.128 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:21:11.127 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:22:11.131 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:23:11.134 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:24:11.137 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:25:11.138 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:26:11.139 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:27:11.140 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:28:11.144 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:29:11.144 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:30:11.050 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:31:11.057 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:32:11.051 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:33:11.051 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:34:11.052 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:35:11.051 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:36:11.052 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:37:11.058 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:38:11.052 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:39:11.055 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:40:11.052 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:41:11.057 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:42:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:43:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:44:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:45:11.054 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:46:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:47:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:48:11.053 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:49:11.050 ERROR 1982 --- [pool-35-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:49:52.965  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:65036 -- CloseStatus[code=1006, reason=]
-2021-03-03 10:49:52.966  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2021-03-03 10:50:12.584  INFO 1982 --- [XNIO-1 task-15] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52452
-2021-03-03 10:50:12.612  INFO 1982 --- [XNIO-1 task-15] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:52452
-2021-03-03 10:50:12.616  WARN 1982 --- [pool-36-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
-2021-03-03 10:50:12.617 ERROR 1982 --- [pool-36-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:51:12.694 ERROR 1982 --- [pool-36-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:52:12.690 ERROR 1982 --- [pool-36-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:53:12.689 ERROR 1982 --- [pool-36-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:53:27.429  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52452 -- CloseStatus[code=1006, reason=]
-2021-03-03 10:53:27.430  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2021-03-03 10:53:47.875  INFO 1982 --- [XNIO-1 task-16] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52547
-2021-03-03 10:53:47.890  INFO 1982 --- [XNIO-1 task-16] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:52547
-2021-03-03 10:53:47.890  WARN 1982 --- [pool-37-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
-2021-03-03 10:53:47.892 ERROR 1982 --- [pool-37-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:54:47.897 ERROR 1982 --- [pool-37-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:54:49.899  INFO 1982 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52547 -- CloseStatus[code=1006, reason=]
-2021-03-03 10:54:49.900  INFO 1982 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2021-03-03 10:55:02.931  INFO 1982 --- [XNIO-1 task-17] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52582
-2021-03-03 10:55:02.939  INFO 1982 --- [XNIO-1 task-17] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:52582
-2021-03-03 10:55:02.940  WARN 1982 --- [pool-38-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
-2021-03-03 10:55:02.943 ERROR 1982 --- [pool-38-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:55:32.233  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52582 -- CloseStatus[code=1006, reason=]
-2021-03-03 10:55:32.235  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2021-03-03 10:56:05.195  INFO 1982 --- [XNIO-1 task-18] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52626
-2021-03-03 10:56:05.202  INFO 1982 --- [XNIO-1 task-18] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:52626
-2021-03-03 10:56:05.204  WARN 1982 --- [pool-39-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
-2021-03-03 10:56:05.206 ERROR 1982 --- [pool-39-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:57:05.208 ERROR 1982 --- [pool-39-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:58:05.212 ERROR 1982 --- [pool-39-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 10:58:59.328  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:52626 -- CloseStatus[code=1006, reason=]
-2021-03-03 10:58:59.328  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
-2021-03-03 10:59:41.948  INFO 1982 --- [XNIO-1 task-19] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:52722
-2021-03-03 10:59:41.956  INFO 1982 --- [XNIO-1 task-19] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:52722
-2021-03-03 10:59:41.957  WARN 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
-2021-03-03 10:59:41.959 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:00:41.961 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:01:41.966 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:02:41.966 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:03:41.964 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:04:41.966 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:05:41.968 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:06:41.972 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:07:41.971 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:08:41.997 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:09:42.010 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:10:42.013 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:11:42.022 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:12:42.019 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:13:42.020 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:14:42.020 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:15:42.021 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:16:42.025 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:17:42.028 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:18:42.032 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:19:42.031 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:20:42.033 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:21:42.032 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:22:42.034 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:23:42.038 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:24:42.049 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:25:42.056 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:26:42.058 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:27:42.062 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:28:42.067 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:29:42.064 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:30:42.070 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:31:42.065 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:32:42.070 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:33:42.070 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:34:42.070 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:35:42.073 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:36:42.072 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:37:42.075 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:38:42.076 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:39:42.159 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:40:42.161 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:41:42.164 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:42:42.168 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:43:42.166 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:44:42.167 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:45:42.171 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:46:42.177 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:47:42.177 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:48:42.174 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:49:42.176 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:50:42.180 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:51:42.183 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:52:42.182 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
-2021-03-03 11:53:42.183 ERROR 1982 --- [pool-40-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 07:21:48.103 ERROR 1982 --- [pool-52-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 07:23:48.108 ERROR 1982 --- [pool-52-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 08:58:03.223 ERROR 1982 --- [pool-52-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:09:03.245 ERROR 1982 --- [pool-52-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:15:03.271 ERROR 1982 --- [pool-52-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:21:03.284 ERROR 1982 --- [pool-52-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:43:52.279  INFO 1982 --- [XNIO-1 task-6] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rickroll"
+2021-03-04 09:43:53.454  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rickroll
+2021-03-04 09:43:54.214  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "d02b3b1f914fac97b44c470f5061902f", "event": {"token": "546d023726295967", "guild_id": "336642139381301249", "endpoint": "us-central625.discord.media:443"}}
+2021-03-04 09:44:03.250 ERROR 1982 --- [pool-52-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:44:22.569  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:63318 -- CloseStatus[code=1006, reason=]
+2021-03-04 09:44:22.576  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-03-04 09:45:12.628  INFO 1982 --- [XNIO-1 task-8] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:65399
+2021-03-04 09:45:12.648  INFO 1982 --- [XNIO-1 task-8] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:65399
+2021-03-04 09:45:12.655  WARN 1982 --- [pool-53-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
+2021-03-04 09:45:12.673 ERROR 1982 --- [pool-53-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:45:31.491  INFO 1982 --- [XNIO-1 task-9] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 09:45:32.146  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 09:45:32.825  INFO 1982 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "63d9816417ea1d9840d11305102e654e", "event": {"token": "546d023726295967", "guild_id": "336642139381301249", "endpoint": "us-central2030.discord.media:443"}}
+2021-03-04 09:46:12.656 ERROR 1982 --- [pool-53-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:47:12.653 ERROR 1982 --- [pool-53-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:48:12.654 ERROR 1982 --- [pool-53-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:49:12.654 ERROR 1982 --- [pool-53-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:49:24.617  INFO 1982 --- [XNIO-1 I/O-3] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:65399 -- CloseStatus[code=1006, reason=]
+2021-03-04 09:49:24.618  INFO 1982 --- [XNIO-1 I/O-3] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-03-04 09:50:00.592  INFO 1982 --- [XNIO-1 task-11] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:65460
+2021-03-04 09:50:00.602  INFO 1982 --- [XNIO-1 task-11] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:65460
+2021-03-04 09:50:00.603  WARN 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
+2021-03-04 09:50:00.604 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:51:00.610 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:51:21.064  INFO 1982 --- [XNIO-1 task-12] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 09:51:21.691  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 09:51:21.935  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 40}
+2021-03-04 09:51:21.938  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAygIAYEphZ2FtZSBUaGFuZGhpcmFtIC0gUmFraXRhIFJha2l0YSBSYWtpdGEgTHlyaWMgfCBEaGFudXNoIHwgU2FudGhvc2ggTmFyYXlhbmFuIHwgS2FydGhpayBTdWJiYXJhagAQU29ueSBNdXNpYyBTb3V0aAAAAAAAA+gAAAs1VW1hTUtfT2ZQdwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVVbWFNS19PZlB3AAd5b3V0dWJlAAAAAAAAAAA=", "noReplace": false, "startTime": "0"}
+2021-03-04 09:51:22.101  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "5b17c92a059b6fb9beac634d71918526", "event": {"token": "fadb9d4a08e705c5", "guild_id": "336642139381301249", "endpoint": "us-central625.discord.media:443"}}
+2021-03-04 09:52:00.609 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:52:23.189  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 1000}
+2021-03-04 09:52:57.129  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "pause", "guildId": "336642139381301249", "pause": true}
+2021-03-04 09:53:00.606 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:54:00.611 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:55:00.608 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:56:00.613 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:57:00.611 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:58:00.618 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 09:59:00.679 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:00:00.673 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:00:45.545  INFO 1982 --- [XNIO-1 task-14] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 10:00:46.174  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 10:01:00.672 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:01:00.892  INFO 1982 --- [XNIO-1 task-16] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 10:01:01.582  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 10:01:01.750  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 40}
+2021-03-04 10:01:01.751  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAygIAYEphZ2FtZSBUaGFuZGhpcmFtIC0gUmFraXRhIFJha2l0YSBSYWtpdGEgTHlyaWMgfCBEaGFudXNoIHwgU2FudGhvc2ggTmFyYXlhbmFuIHwgS2FydGhpayBTdWJiYXJhagAQU29ueSBNdXNpYyBTb3V0aAAAAAAAA+gAAAs1VW1hTUtfT2ZQdwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVVbWFNS19PZlB3AAd5b3V0dWJlAAAAAAAAAAA=", "noReplace": false, "startTime": "0"}
+2021-03-04 10:01:01.877  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "5b17c92a059b6fb9beac634d71918526", "event": {"token": "29ca696fa53ab118", "guild_id": "336642139381301249", "endpoint": "us-central625.discord.media:443"}}
+2021-03-04 10:01:58.294  INFO 1982 --- [XNIO-1 task-18] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 10:01:58.756  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 10:02:00.672 ERROR 1982 --- [pool-54-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:02:12.571  INFO 1982 --- [XNIO-1 task-20] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 10:02:12.979  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 10:02:13.207  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 40}
+2021-03-04 10:02:13.207  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAygIAYEphZ2FtZSBUaGFuZGhpcmFtIC0gUmFraXRhIFJha2l0YSBSYWtpdGEgTHlyaWMgfCBEaGFudXNoIHwgU2FudGhvc2ggTmFyYXlhbmFuIHwgS2FydGhpayBTdWJiYXJhagAQU29ueSBNdXNpYyBTb3V0aAAAAAAAA+gAAAs1VW1hTUtfT2ZQdwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVVbWFNS19PZlB3AAd5b3V0dWJlAAAAAAAAAAA=", "noReplace": false, "startTime": "0"}
+2021-03-04 10:02:13.334  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "5b17c92a059b6fb9beac634d71918526", "event": {"token": "d8edeb9396d7070f", "guild_id": "336642139381301249", "endpoint": "us-central2030.discord.media:443"}}
+2021-03-04 10:02:20.269  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:65460 -- CloseStatus[code=1006, reason=]
+2021-03-04 10:02:20.271  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2021-03-04 10:02:34.125  INFO 1982 --- [XNIO-1 task-22] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49278
+2021-03-04 10:02:34.130  INFO 1982 --- [XNIO-1 task-22] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:49278
+2021-03-04 10:02:34.131  WARN 1982 --- [pool-55-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
+2021-03-04 10:02:34.131 ERROR 1982 --- [pool-55-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:02:41.337  INFO 1982 --- [XNIO-1 task-23] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 10:02:41.801  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 10:02:41.939  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 40}
+2021-03-04 10:02:41.940  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAygIAYEphZ2FtZSBUaGFuZGhpcmFtIC0gUmFraXRhIFJha2l0YSBSYWtpdGEgTHlyaWMgfCBEaGFudXNoIHwgU2FudGhvc2ggTmFyYXlhbmFuIHwgS2FydGhpayBTdWJiYXJhagAQU29ueSBNdXNpYyBTb3V0aAAAAAAAA+gAAAs1VW1hTUtfT2ZQdwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVVbWFNS19PZlB3AAd5b3V0dWJlAAAAAAAAAAA=", "noReplace": false, "startTime": "0"}
+2021-03-04 10:02:42.132  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "2a82c47e9d0be357402878da22e5c8c0", "event": {"token": "d8edeb9396d7070f", "guild_id": "336642139381301249", "endpoint": "us-central2030.discord.media:443"}}
+2021-03-04 10:03:34.137 ERROR 1982 --- [pool-55-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:04:34.136 ERROR 1982 --- [pool-55-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:05:34.138 ERROR 1982 --- [pool-55-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:06:34.142 ERROR 1982 --- [pool-55-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:07:17.471  INFO 1982 --- [XNIO-1 task-25] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:baby shark"
+2021-03-04 10:07:18.312  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: baby shark
+2021-03-04 10:07:18.319  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAxgIATUJhYnkgU2hhcmsgRGFuY2UgfCBNb3N0IFZpZXdlZCBWaWRlbyBvbiBZb3VUdWJlIHwgUElOS0ZPTkcgU29uZ3MgZm9yIENoaWxkcmVuAB9QaW5rZm9uZyEgS2lkcycgU29uZ3MgJiBTdG9yaWVzAAAAAAACFygAC1hxWnNvZXNhNTV3AAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9WHFac29lc2E1NXcAB3lvdXR1YmUAAAAAAAAAAA==", "noReplace": false, "startTime": "0"}
+2021-03-04 10:07:33.038  INFO 1982 --- [XNIO-1 task-27] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:baby shark"
+2021-03-04 10:07:33.692  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: baby shark
+2021-03-04 10:07:33.845  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 40}
+2021-03-04 10:07:33.846  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAxgIATUJhYnkgU2hhcmsgRGFuY2UgfCBNb3N0IFZpZXdlZCBWaWRlbyBvbiBZb3VUdWJlIHwgUElOS0ZPTkcgU29uZ3MgZm9yIENoaWxkcmVuAB9QaW5rZm9uZyEgS2lkcycgU29uZ3MgJiBTdG9yaWVzAAAAAAACFygAC1hxWnNvZXNhNTV3AAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9WHFac29lc2E1NXcAB3lvdXR1YmUAAAAAAAAAAA==", "noReplace": false, "startTime": "0"}
+2021-03-04 10:07:33.963  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "2a82c47e9d0be357402878da22e5c8c0", "event": {"token": "61bf499cddc8bc6c", "guild_id": "336642139381301249", "endpoint": "us-central2030.discord.media:443"}}
+2021-03-04 10:07:34.144 ERROR 1982 --- [pool-55-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:07:39.877  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49278 -- CloseStatus[code=1006, reason=]
+2021-03-04 10:07:39.878  INFO 1982 --- [XNIO-1 I/O-2] lavalink.server.io.SocketContext         : Shutting down 1 playing players.
+2021-03-04 10:10:53.004  INFO 1982 --- [XNIO-1 task-29] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:49472
+2021-03-04 10:10:53.017  INFO 1982 --- [XNIO-1 task-29] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:49472
+2021-03-04 10:10:53.020  WARN 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
+2021-03-04 10:10:53.021 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:11:04.551  INFO 1982 --- [XNIO-1 task-30] l.server.player.AudioLoaderRestHandler   : Got request to load for identifier "ytsearch:rakita"
+2021-03-04 10:11:05.109  INFO 1982 --- [lava-daemon-pool-info-loader-2-thread-1] lavalink.server.player.AudioLoader       : Loaded playlist Search results for: rakita
+2021-03-04 10:11:05.295  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "volume", "guildId": "336642139381301249", "volume": 40}
+2021-03-04 10:11:05.295  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "play", "guildId": "336642139381301249", "track": "QAAAygIAYEphZ2FtZSBUaGFuZGhpcmFtIC0gUmFraXRhIFJha2l0YSBSYWtpdGEgTHlyaWMgfCBEaGFudXNoIHwgU2FudGhvc2ggTmFyYXlhbmFuIHwgS2FydGhpayBTdWJiYXJhagAQU29ueSBNdXNpYyBTb3V0aAAAAAAAA+gAAAs1VW1hTUtfT2ZQdwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVVbWFNS19PZlB3AAd5b3V0dWJlAAAAAAAAAAA=", "noReplace": false, "startTime": "0"}
+2021-03-04 10:11:05.474  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : {"op": "voiceUpdate", "guildId": "336642139381301249", "sessionId": "d4996b0012fa35468229466bbcc63825", "event": {"token": "830d9e61412673ba", "guild_id": "336642139381301249", "endpoint": "us-central2030.discord.media:443"}}
+2021-03-04 10:11:53.020 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:12:53.021 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:13:53.028 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:14:53.057 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:15:53.064 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:16:53.066 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:17:53.066 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:18:53.075 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:19:53.073 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:20:53.079 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:21:53.077 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:22:53.080 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:23:53.081 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:24:53.095 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:25:53.083 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:26:53.087 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:27:53.085 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:28:53.086 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:29:53.103 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:30:53.015 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:31:53.015 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:32:53.025 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:33:53.015 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:34:53.011 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:35:53.015 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:36:53.010 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:37:53.011 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:38:53.013 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:39:53.014 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:40:53.015 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:42:53.009 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:44:53.022 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:45:53.013 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:46:53.014 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:47:53.025 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:49:53.027 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:50:53.051 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:51:53.017 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:52:53.019 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:55:53.016 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:58:53.019 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 10:59:53.016 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:00:53.137 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:01:53.159 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:03:53.145 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:06:53.150 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:07:53.147 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:08:53.149 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:09:53.153 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:13:53.163 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:14:53.167 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:15:53.176 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:16:53.181 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:17:53.183 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:19:53.189 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:22:53.195 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:23:53.196 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:26:53.199 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:27:53.207 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:28:53.204 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:33:53.261 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:36:53.258 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:38:53.256 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:40:53.259 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 11:41:53.259 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:03:02.028 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:04:02.028 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:05:02.035 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:07:02.034 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:10:02.043 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:11:02.043 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:12:02.044 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:13:02.050 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:14:02.051 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:15:02.050 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:16:02.050 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:17:02.056 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:18:02.003 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:20:02.008 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:21:02.008 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:22:02.007 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:24:02.007 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:25:02.021 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:27:02.014 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:28:02.012 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:29:02.017 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:30:02.017 ERROR 1982 --- [pool-56-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:33:54.039  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketServer          : Connection closed from /127.0.0.1:49472 -- CloseStatus[code=1006, reason=]
+2021-03-04 12:33:54.040  INFO 1982 --- [XNIO-1 I/O-4] lavalink.server.io.SocketContext         : Shutting down 0 playing players.
+2021-03-04 12:34:10.833  INFO 1982 --- [XNIO-1 task-32] l.server.io.HandshakeInterceptorImpl     : Incoming connection from /127.0.0.1:51003
+2021-03-04 12:34:10.849  INFO 1982 --- [XNIO-1 task-32] lavalink.server.io.SocketServer          : Connection successfully established from /127.0.0.1:51003
+2021-03-04 12:34:10.853  WARN 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOSVersionInfoEx  : Unable to parse version 10.16 to a codename.
+2021-03-04 12:34:10.856 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:36:10.868 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:37:10.855 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:38:10.855 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:41:31.542 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:42:31.546 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:45:22.932 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:46:22.933 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:49:02.305 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:51:02.329 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:52:02.322 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:58:16.512 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 12:59:16.514 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:00:16.550 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:01:16.520 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:02:16.522 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:03:16.522 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:04:16.524 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:05:16.525 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:06:16.529 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:07:16.530 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:08:16.537 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:09:16.520 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:10:16.523 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:11:16.525 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:13:16.525 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:14:16.536 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:15:16.539 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:17:16.533 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:19:16.525 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:21:16.524 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:23:16.530 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:24:16.531 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:25:16.530 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:26:16.537 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:27:16.530 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:28:16.531 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:32:16.550 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:33:16.647 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:34:16.615 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:35:16.614 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:36:16.608 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:37:16.613 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:38:16.617 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:40:16.618 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:41:16.648 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:48:16.640 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:50:16.665 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:55:16.678 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:56:16.673 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:58:16.672 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 13:59:16.674 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:00:16.681 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:01:16.697 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:02:16.677 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:03:16.629 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:05:16.610 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:06:16.605 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:07:16.605 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:08:16.610 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:09:16.608 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:10:16.610 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:11:16.604 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:12:16.606 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:13:16.614 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:15:16.603 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:16:16.612 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:17:16.650 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:18:16.615 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:19:16.605 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:20:16.615 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:21:16.623 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:22:16.611 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:24:16.635 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:25:16.608 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:26:16.609 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:27:16.605 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:28:16.602 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:29:16.614 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:32:16.610 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:33:16.609 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:34:16.613 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:36:16.658 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:37:16.668 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:38:16.664 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:39:16.666 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:40:16.663 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:41:16.668 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:42:16.662 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:43:16.668 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:44:16.686 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:45:16.664 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:47:16.673 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:48:16.666 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:49:16.672 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:50:16.692 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:52:16.699 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 14:56:16.705 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:00:16.711 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:01:16.708 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:03:16.710 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:04:16.718 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:06:16.825 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:07:16.830 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:08:16.833 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:11:16.836 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:16:16.848 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:17:16.844 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:18:16.852 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:21:16.851 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:24:16.866 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:26:16.868 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:27:16.874 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:28:16.872 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:31:16.882 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:32:16.879 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:34:16.881 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:36:16.885 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:38:16.888 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:41:16.889 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:44:16.894 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:49:16.908 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:51:16.906 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:52:16.920 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:53:16.909 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:55:16.916 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:56:16.918 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:57:16.915 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 15:59:16.919 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 16:02:16.931 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 16:03:16.938 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 16:04:16.938 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 16:06:16.937 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 17:52:29.436 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 17:53:29.440 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 17:56:29.441 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 17:57:29.446 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 17:58:29.444 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 17:59:29.447 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:13:42.607 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:17:42.612 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:19:42.619 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:20:42.618 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:21:42.618 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:22:42.626 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:24:42.628 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:25:42.627 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:26:42.627 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:28:42.631 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:29:42.635 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:33:42.646 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:35:42.656 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:36:42.653 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:37:42.657 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:38:42.656 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:39:42.658 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:42:42.663 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:43:42.668 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:48:42.705 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:49:42.705 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:51:42.709 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:55:42.472 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:58:42.473 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 18:59:42.475 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:00:42.481 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:01:42.482 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:02:42.480 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:03:42.483 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:04:42.484 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:05:42.486 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:08:42.493 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:09:42.496 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:10:42.592 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:11:42.592 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:12:42.596 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:13:42.598 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:14:42.597 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:18:42.606 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:19:42.610 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:21:42.710 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:54:46.696 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 19:55:46.697 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:06:34.215 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:08:34.211 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:11:34.217 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:12:34.221 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:13:34.221 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:14:34.222 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:16:34.228 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:18:34.233 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:20:34.238 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:22:34.239 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:25:34.272 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:26:34.269 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:28:34.272 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:29:34.275 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:31:34.279 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:32:34.284 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:33:34.282 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:36:34.292 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:37:34.292 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:38:34.292 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:39:34.280 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:40:34.275 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:41:34.277 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:42:34.275 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:43:34.284 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:44:34.278 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:45:34.278 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:46:34.283 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:47:34.280 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:52:13.718 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:54:13.717 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:55:13.716 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:57:13.562 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 20:59:13.561 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 21:01:13.562 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22
+2021-03-04 21:02:13.563 ERROR 1982 --- [pool-57-thread-1] oshi.software.os.mac.MacOperatingSystem  : Failed syctl call: kern.procargs2, Error code: 22

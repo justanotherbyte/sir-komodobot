@@ -59,7 +59,7 @@ async def get_prefix(bot, message):
 intents = discord.Intents.all()
 bot = Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents, )
 bot.db = bot.loop.run_until_complete(aiosqlite.connect('config.db'))
-#bot.economy = bot.loop.run_until_complete(asyncpg.connect('postgresql://'))
+bot.pg = bot.loop.run_until_complete(asyncpg.create_pool(f"postgresql://postgres:{os.getenv('POSTGRES_PASS')}@localhost:5432/komodobot"))
 bot.remove_command('help')
 bot.session = aiohttp.ClientSession(
     headers={"User-Agent": f"python-requests/2.25.1 The Anime Bot/1.1.0 Python/{sys.version_info[0]}.{sys.version_info[1]}.{sys.version_info[2]} aiohttp/{aiohttp.__version__}"})
@@ -81,31 +81,6 @@ async def servers(ctx):
     activeservers = bot.guilds
     for guild in activeservers:
         await ctx.send(f"{guild.name}: {guild.id}")
-
-"""
-class MyHelp(commands.MinimalHelpCommand):
-    async def send_command_help(self, command):
-        ctx = self.context
-        embed = discord.Embed(title=self.get_command_signature(command))
-        embed.add_field(name="Help", value=command.description)
-        alias = command.aliases
-        if alias:
-            embed.add_field(
-                name="Aliases", value=", ".join(alias), inline=False)
-        embed.add_field(name="Examples", value='`' +
-                        ctx.prefix + command.brief + '`', inline=False)
-        channel = self.get_destination()
-        await channel.send(embed=embed)
-
-    async def send_pages(self):
-        destination = self.get_destination()
-        for page in self.paginator.pages:
-            emby = discord.Embed(description=page)
-            await destination.send(embed=emby)
-
-
-bot.help_command = MyHelp()
-"""
 
 @bot.event
 async def on_guild_join(guild):
@@ -158,73 +133,6 @@ async def mute(ctx, time, member: discord.Member, reason=None):
     embed = discord.Embed(title="User Unmuted", description="**{0}** was muted by **{1}**!".format(
         member, ctx.message.author), color=0xff00f6)
 
-"""
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-    if message.author.bot:
-        return
-    if re.search('<(?P<animated>a?):(?P<name>[a-zA-Z0-9_]{2,32}):(?P<id>[0-9]{18,22})', message.content):
-        return
-    if re.search(r':(.*?):', message.content):
-        string = message.content
-        list_of_words = string.split()
-        message_to_send = []
-        ctx = await bot.get_context(message)
-        for i in list_of_words:
-            converter = commands.EmojiConverter()
-            if i.startswith(':'):
-                    emoji_to_convert = i.strip(':')
-                    emoji = await converter.convert(ctx, emoji_to_convert)
-                    message_to_send.append(str(emoji))
-            else:
-                message_to_send.append(i)
-        #await message.channel.send(message_to_send)
-        await message.delete()
-        webhook_message_to_send = ' '.join(message_to_send)
-        #await ctx.send(webhook_message_to_send)            
-        webhook = await message.channel.create_webhook(name='webhook')
-        await webhook.send(content=webhook_message_to_send, username=message.author.display_name, avatar_url=message.author.avatar_url)
-        await webhook.delete()
-    bucket = message_cooldown.get_bucket(message)
-    retry_after = bucket.update_rate_limit()
-    custom_emojis = re.findall(
-        r'<(?P<animated>a?):(?P<name>[a-zA-Z0-9_]{2,32}):(?P<id>[0-9]{18,22})>', message.content)
-    var = message.content
-    num_of_capital_letters = sum(x.isupper() for x in var) / len(var) * 100
-    if retry_after:
-        await message.delete()
-        msg = await message.channel.send(f"{message.author.mention}, Stop Spamming!")
-        await asyncio.sleep(0.5)
-        await msg.delete()
-    if re.findall(r'(?:https?://)?discord(?:(?:app)?.com/invite|.gg)/?[a-zA-Z0-9]+/?', message.content):
-        await message.delete()
-        msg = await message.channel.send(f"{message.author.mention}, Discord Invite Links ain't allowed!")
-        await asyncio.sleep(0.5)
-        await msg.delete()
-    if len(custom_emojis) > 10:
-        await message.delete()
-        msg = await message.channel.send(f"{message.author.mention}, Stop spamming emojis!")
-        await asyncio.sleep(0.5)
-        await msg.delete()
-    if num_of_capital_letters > 70:
-        await message.delete()
-        msg = await message.channel.send(f"{message.author.mention}, Stop sending all uppercase messages!")
-        await asyncio.sleep(0.5)
-        await msg.delete()
-    if re.search('\[.*\]\(https?:\\.*\.*\)', message.content):
-        webhook = await message.channel.create_webhook(name='webhook')
-        await webhook.send(content=message.content, username=message.author.display_name, avatar_url=message.author.avatar_url)
-        await webhook.delete()
-    if len(re.findall(r"<@!?\d{18,18}>", message.content)) > 5:
-        await message.delete()
-        msg = await message.channel.send(f"{message.author.mention}, Stop spam pinging!")
-        await asyncio.sleep(0.5)
-        await msg.delete()
-    await bot.process_commands(message)
-"""
-
 
 @bot.command()
 async def purge(ctx, number, member: discord.Member = None):
@@ -266,25 +174,33 @@ async def on_command_error(ctx, error):
         if len(matches) > 0:
             await ctx.send(f'Command "{cmd}" not found, maybe you meant "{matches[0]}"?')
         else:
-          await ctx.send(f'Command "{cmd}" not found, use the help command to know what commands are available')
+            await ctx.send(f'Command "{cmd}" not found, use the help command to know what commands are available')
     raise error
+
 
 @bot.listen('on_message')
 async def on_message(message):
     if re.search(r';(.*?);', message.content):
-        string = message.content
-        list_of_words = string.split()
-        message_to_send = []
-        for i in list_of_words:
-            if i.startswith(';'):
-                emoji_to_convert = i.strip(';')
-                emoji = str(process.extract(emoji_to_convert, bot.emojis, limit=1)[0][0])
-                message_to_send.append(emoji)
+        opt_in = await bot.pg.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', message.author.id)
+        whether_to_do_nitro = opt_in['opt_in']
+        if whether_to_do_nitro == True:
+            string = message.content
+            list_of_words = string.split()
+            message_to_send = []
+            for i in list_of_words:
+                if i.startswith(';'):
+                    emoji_to_convert = i.strip(';')
+                    emoji = str(process.extract(
+                        emoji_to_convert, bot.emojis, limit=1)[0][0])
+                    message_to_send.append(emoji)
+                else:
+                    pass
+            if message:
+                await message.channel.send(" ".join(message_to_send))
             else:
-                pass
-        if message:
-            await message.channel.send(" ".join(message_to_send))
-        else: return
+                return
+        else:
+            return
 
 
 @bot.listen('on_message_edit')
@@ -294,6 +210,7 @@ async def on_message_edit(old, new):
     if new.embeds != []:
         return
     await bot.process_commands(new)
+
 
 @bot.command()
 async def xkcd(ctx):
@@ -420,8 +337,6 @@ async def leave(ctx):
     await ctx.guild.leave()
 
 
-
-
 @bot.command()
 async def cb(ctx, emotion='neutral'):
     emotions = {
@@ -496,7 +411,9 @@ async def getpic(ctx, url: str):
     except:
         await ctx.send('Couldn\'t screenshot due to error')
 
-#Credit to cryptex for help command
+# Credit to cryptex for help command
+
+
 @bot.command(name="help")
 async def _help(ctx, *, command: str = None):
     """Shows help about a command or the bot"""
@@ -509,7 +426,7 @@ async def _help(ctx, *, command: str = None):
             if entity is None:
                 clean = command.replace('@', '@\u200b')
                 failed_command = re.match(f"^({ctx.prefix})\s*(.*)",
-                                          f"ovo {clean}",
+                                          f"{ctx.prefix} {clean}",
                                           flags=re.IGNORECASE).group(2)
                 matches = difflib.get_close_matches(failed_command,
                                                     ctx.bot.command_list)
@@ -531,6 +448,7 @@ async def _help(ctx, *, command: str = None):
                                   error,
                                   error.__traceback__,
                                   file=sys.stderr)
+
 
 @bot.command()
 async def redirectcheck(ctx, website):
@@ -585,7 +503,7 @@ async def halptest(ctx):
             await mesage.remove_reaction('🏠', ctx.author)
 
 
-extensions = ['Fun', 'Utility', 'Images', 'jishaku', 'Socket', 'Music']
+extensions = ['Fun', 'Utility', 'Images', 'jishaku', 'Socket', 'Music', 'Economy']
 
 for extension in extensions:
     bot.load_extension(f"Cogs.{extension}")

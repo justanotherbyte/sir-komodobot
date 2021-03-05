@@ -263,5 +263,25 @@ class Fun(commands.Cog):
         interface = self.PaginatorEmbedInterface(ctx.bot, paginator, owner=ctx.author)
         await interface.send_to(ctx)
 
+    @commands.command()
+    async def opt_in(self, ctx):
+        opt_in = await self.bot.emotes.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', ctx.author.id)
+        opt_in = opt_in['opt_in']
+        if opt_in == True:
+            await ctx.send("You Have Already opted-in to emotes")
+        else:
+            await self.bot.emotes.execute('UPDATE emotes set opt_in = TRUE WHERE member_id = $1', ctx.author.id)
+            await ctx.send("You have opted-in to emoji.")
+    
+    @commands.command()
+    async def opt_out(self, ctx):
+        opt_in = await self.bot.emotes.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', ctx.author.id)
+        opt_in = opt_in['opt_in']
+        if opt_in == False:
+            await ctx.send("You Have Already opted out of emotes")
+        else:
+            await self.bot.emotes.execute('UPDATE emotes set opt_in = FALSE WHERE member_id = $1', ctx.author.id)
+            await ctx.send("You have opted out of emoji.")
+
 def setup(bot):
     bot.add_cog(Fun(bot))

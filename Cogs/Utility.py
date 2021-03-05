@@ -233,7 +233,7 @@ class Utility(commands.Cog):
     @commands.command()
     async def translate(self, ctx, destination, text_to_translate):
         result = await self.translate_text(destination, text_to_translate)
-        return await ctx.send(result)
+        return await ctx.send(embed=discord.Embed(title='Translating'))
     
     @commands.command()
     async def commits(self, ctx):
@@ -286,7 +286,7 @@ class Utility(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command(name="tts", aliases=['texttospeech', 'speak'],
-                                             brief="None|Send Messages+Attach Files", usage="tts <text>;;tts Text",
+                                             brief="None|Send Messages+Attach Files",
                                               description="Text-to-speech engine. Returns an MP3 file that will read out your input text.")
     async def _tts(self, ctx, *, text):
         def do_tts():

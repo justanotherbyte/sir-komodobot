@@ -9,6 +9,7 @@ import humanize
 import discord
 import datetime
 import asyncio
+from jishaku.paginators import WrappedPaginator, PaginatorInterface
 
 
 RURL = re.compile('https?:\/\/(?:www\.)?.+')
@@ -16,11 +17,11 @@ RURL = re.compile('https?:\/\/(?:www\.)?.+')
 
 class MusicController:
 
-    def __init__(self, bot, guild_id):
+    def __init__(self, bot, guild_id, ctx: commands.Context):
         self.bot = bot
         self.guild_id = guild_id
         self.channel = None
-
+        self.requester = ctx.author
         self.next = asyncio.Event()
         self.queue = asyncio.Queue()
 
@@ -43,7 +44,7 @@ class MusicController:
 
             song = await self.queue.get()
             await player.play(song)
-            self.now_playing = await self.channel.send(f'Now playing: `{song}`')
+            self.now_playing = await self.channel.send(f'Now playing: `{song}`, requested by {self.requester}')
 
             await self.next.wait()
 
@@ -88,7 +89,7 @@ class Music(commands.Cog):
         try:
             controller = self.controllers[gid]
         except KeyError:
-            controller = MusicController(self.bot, gid)
+            controller = MusicController(self.bot, gid, value)
             self.controllers[gid] = controller
 
         return controller
@@ -123,7 +124,7 @@ class Music(commands.Cog):
                     'No channel to join. Please either specify a valid channel or join one.')
 
         player = self.bot.wavelink.get_player(ctx.guild.id)
-        await ctx.send(f'Connecting to **`{channel.name}`**', delete_after=15)
+        await ctx.send(f'Connecting to **{channel.name}**')
         await player.connect(channel.id)
 
         controller = self.get_controller(ctx)
@@ -148,16 +149,16 @@ class Music(commands.Cog):
 
         controller = self.get_controller(ctx)
         await controller.queue.put(track)
-        await ctx.send(f'Added {str(track)} to the queue.', delete_after=15)
+        await ctx.send(f'Added {str(track)} to the queue.')
 
     @commands.command()
     async def pause(self, ctx):
         """Pause the player."""
         player = self.bot.wavelink.get_player(ctx.guild.id)
         if not player.is_playing:
-            return await ctx.send('I am not currently playing anything!', delete_after=15)
+            return await ctx.send('I am not currently playing anything!')
 
-        await ctx.send('Pausing the song!', delete_after=15)
+        await ctx.send('Pausing the song!')
         await player.set_pause(True)
 
     @commands.command()
@@ -165,9 +166,9 @@ class Music(commands.Cog):
         """Resume the player from a paused state."""
         player = self.bot.wavelink.get_player(ctx.guild.id)
         if not player.paused:
-            return await ctx.send('I am not currently paused!', delete_after=15)
+            return await ctx.send('I am not currently paused!')
 
-        await ctx.send('Resuming the player!', delete_after=15)
+        await ctx.send('Resuming the player!')
         await player.set_pause(False)
 
     @commands.command()
@@ -176,9 +177,9 @@ class Music(commands.Cog):
         player = self.bot.wavelink.get_player(ctx.guild.id)
 
         if not player.is_playing:
-            return await ctx.send('I am not currently playing anything!', delete_after=15)
+            return await ctx.send('I am not currently playing anything!')
 
-        await ctx.send('Skipping the song!', delete_after=15)
+        await ctx.send('Skipping the song!')
         await player.stop()
 
     @commands.command()
@@ -206,6 +207,26 @@ class Music(commands.Cog):
 
         controller.now_playing = await ctx.send(f'Now playing: `{player.current}`')
 
+
+    class PaginatorEmbedInterface(PaginatorInterface):
+        def __init__(self, *args, **kwargs):
+                self._embed = discord.Embed()
+                super().__init__(*args, **kwargs)
+
+        @property
+        def send_kwargs(self) -> dict:
+            display_page = self.display_page
+            self._embed.description = f"**:7298_Nitro_Gif: Emoji List**\n{self.pages[display_page]}"
+            self._embed.set_footer(
+                text=f'Page {display_page + 1}/{self.page_count}')
+            return {'embed': self._embed}
+
+        max_page_size = 2048
+
+        @property
+        def page_size(self) -> int:
+            return self.paginator.max_size
+
     @commands.command(aliases=['q'])
     async def queue(self, ctx):
         """Retrieve information on the next 5 songs from the queue."""
@@ -213,15 +234,15 @@ class Music(commands.Cog):
         controller = self.get_controller(ctx)
 
         if not player.current or not controller.queue._queue:
-            return await ctx.send('There are no songs currently in the queue.', delete_after=20)
+            return await ctx.send('There are no songs currently in the queue.')
 
         upcoming = list(itertools.islice(controller.queue._queue, 0, 500))
+        paginator = WrappedPaginator(max_size=500, prefix="", suffix="")
+        paginator.add_line('\n'.join(f'**{str(song)}**' for song in upcoming))
+        interface = self.PaginatorEmbedInterface(
+            ctx.bot, paginator, owner=ctx.author)
+        await interface.send_to(ctx)
 
-        fmt = '\n'.join(f'**`{str(song)}`**' for song in upcoming)
-        embed = discord.Embed(
-            title=f'Upcoming - Next {len(upcoming)}', description=fmt)
-
-        await ctx.send(embed=embed)
 
     @commands.command(aliases=['disconnect', 'dc'])
     async def stop(self, ctx):
@@ -235,7 +256,7 @@ class Music(commands.Cog):
             return await ctx.send('There was no controller to stop.')
 
         await player.disconnect()
-        await ctx.send('Disconnected player and killed controller.', delete_after=20)
+        await ctx.send('Disconnected player and killed controller.')
 
     @commands.command()
     async def moosicinfo(self, ctx):
