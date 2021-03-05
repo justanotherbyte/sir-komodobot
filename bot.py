@@ -69,6 +69,8 @@ message_cooldown = commands.CooldownMapping.from_cooldown(
     1.0, 3.0, commands.BucketType.user)
 
 
+
+
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
@@ -318,17 +320,8 @@ async def covid(ctx, *, countryName=None):
         embed3.set_author(name="Error!")
         await ctx.send(embed=embed3)
 
-
 @bot.command()
-async def magic(ctx, member: discord.Member = None):
-    if member is None:
-        member = ctx.author
-    image = await client.magic(str(member.avatar_url_as(format='png')))
-    file = discord.File(image, 'magic.gif')
-    await ctx.send(file=file)
-
-
-@bot.command()
+@commands.is_owner()
 async def leave(ctx):
     await ctx.guild.leave()
 
