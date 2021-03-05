@@ -269,19 +269,19 @@ class Images(commands.Cog):
     @commands.command(aliases=['gay'])
     async def why_are_u_gay(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str], thing2: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None,):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
-            if thing2 == None:
+            if thing2 is None:
                 url2 = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing2, discord.PartialEmoji) or isinstance(thing2, discord.Emoji):
+            elif isinstance(thing2, (discord.PartialEmoji, discord.Emoji)):
                 url2 = str(thing2.url)
-            elif isinstance(thing2, discord.Member) or isinstance(thing2, discord.User):
+            elif isinstance(thing2, (discord.Member, discord.User)):
                 url2 = str(thing2.avatar_url_as(static_format="png"))
             else:
                 url2 = thing2
@@ -292,11 +292,11 @@ class Images(commands.Cog):
     @commands.command()
     async def angel(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
@@ -307,11 +307,11 @@ class Images(commands.Cog):
     @commands.command()
     async def satan(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
@@ -322,11 +322,11 @@ class Images(commands.Cog):
     @commands.command()
     async def hitler(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
@@ -337,11 +337,11 @@ class Images(commands.Cog):
     @commands.command()
     async def obama(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
@@ -352,11 +352,11 @@ class Images(commands.Cog):
     @commands.command()
     async def bad(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
@@ -367,11 +367,11 @@ class Images(commands.Cog):
     @commands.command()
     async def sith(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
@@ -382,11 +382,11 @@ class Images(commands.Cog):
     @commands.command()
     async def jail(self, ctx, thing: typing.Union[discord.Member, discord.PartialEmoji, discord.Emoji, str] = None):
         async with ctx.channel.typing():
-            if thing == None:
+            if thing is None:
                 url = str(ctx.author.avatar_url_as(static_format="png"))
-            elif isinstance(thing, discord.PartialEmoji) or isinstance(thing, discord.Emoji):
+            elif isinstance(thing, (discord.PartialEmoji, discord.Emoji)):
                 url = str(thing.url)
-            elif isinstance(thing, discord.Member) or isinstance(thing, discord.User):
+            elif isinstance(thing, (discord.Member, discord.User)):
                 url = str(thing.avatar_url_as(static_format="png"))
             else:
                 url = thing
