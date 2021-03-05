@@ -222,7 +222,7 @@ class Fun(commands.Cog):
 
     @commands.command(description='Look at some red pandas', brief='birb')
     async def roast(self, ctx, member: discord.Member=None):
-        if member == None:
+        if member is None:
             member =  ctx.author
         roast = await dagpi.roast()
         await ctx.send(f"**{member.name}**, {roast}")
