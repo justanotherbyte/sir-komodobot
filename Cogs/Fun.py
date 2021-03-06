@@ -48,7 +48,7 @@ class Fun(commands.Cog):
             await ctx.send(random.choice(jokes))
 
 
-    @commands.command(description='Posts a very *punny* pun', brief=f'pun')
+    @commands.command(description='Posts a very *punny* pun', brief='pun')
     async def pun(self, ctx):
         with open('puns.txt', 'r') as f:
             jokes = list(f)
@@ -78,7 +78,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/panda") as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"PANDA!!!", color=0x0000FF)
+        embed = discord.Embed(title="PANDA!!!", color=0x0000FF)
         embed.set_image(url=res["link"])
         embed.set_footer(text="Powered by https://some-random-api.ml")
         await ctx.send(embed=embed)
@@ -89,7 +89,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/birb") as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"BIRB!!!", color=0x0000FF)
+        embed = discord.Embed(title="BIRB!!!", color=0x0000FF)
         embed.set_image(url=res["link"])
         embed.set_footer(text="Powered by https://some-random-api.ml")
         await ctx.send(embed=embed)
@@ -99,7 +99,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/fox") as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"FOXXY!!!", color=0x0000FF)
+        embed = discord.Embed(title="FOXXY!!!", color=0x0000FF)
         embed.set_image(url=res["link"])
         embed.set_footer(text="Powered by https://some-random-api.ml")
         await ctx.send(embed=embed)
@@ -109,7 +109,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/red_panda") as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"RED PANDO!!!", color=0x0000FF)
+        embed = discord.Embed(title="RED PANDO!!!", color=0x0000FF)
         embed.set_image(url=res["link"])
         embed.set_footer(text="Powered by https://some-random-api.ml")
         await ctx.send(embed=embed)
@@ -119,7 +119,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/koala") as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"KOALA!!!", color=0x0000FF)
+        embed = discord.Embed(title="KOALA!!!", color=0x0000FF)
         embed.set_image(url=res["link"])
         embed.set_footer(text="Powered by https://some-random-api.ml")
         await ctx.send(embed=embed)
@@ -129,7 +129,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://some-random-api.ml/img/cat") as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"CATTO!!!", color=0x0000FF)
+        embed = discord.Embed(title="CATTO!!!", color=0x0000FF)
         embed.set_image(url=res["link"])
         embed.set_footer(text="Powered by https://some-random-api.ml")
         await ctx.send(embed=embed)
@@ -154,7 +154,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://dog.ceo/api/breeds/image/random') as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"DOGGO!!!", color=0xff0000)
+        embed = discord.Embed(title="DOGGO!!!", color=0xff0000)
         embed.set_image(url=res["message"])
         embed.set_footer(text="Powered by https://dog.ceo")
         await ctx.send(embed=embed)
@@ -215,7 +215,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://random-d.uk/api/random') as r:
                 res = await r.json()
-        embed = discord.Embed(title=f"DUCCCY!!!", color=0x0000ff)
+        embed = discord.Embed(title="DUCCCY!!!", color=0x0000ff)
         embed.set_image(url=res["url"])
         embed.set_footer(text=res["message"])
         await ctx.send(embed=embed)

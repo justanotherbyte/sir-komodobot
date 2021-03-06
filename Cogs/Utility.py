@@ -295,7 +295,7 @@ class Utility(commands.Cog):
             buffer.seek(0)
             return buffer
 
-        original = await ctx.send(f"<a:loading:747680523459231834> Loading... (Long strings of text will take a long time)")
+        original = await ctx.send("<a:loading:747680523459231834> Loading... (Long strings of text will take a long time)")
         partial = functools.partial(do_tts)
         fp = await ctx.bot.loop.run_in_executor(None, partial)
         await original.delete()
