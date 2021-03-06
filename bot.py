@@ -424,7 +424,7 @@ async def _help(ctx, *, command: str = None):
                 return await ctx.send(
                     f"Command or category '{clean}' not found. Did you mean `{matches[0]}`?"
                 )
-            elif isinstance(entity, commands.Command):
+            if isinstance(entity, commands.Command):
                 p = await HelpPaginator.from_command(ctx, entity)
             else:
                 p = await HelpPaginator.from_cog(ctx, entity)
