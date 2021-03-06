@@ -75,7 +75,8 @@ class Utility(commands.Cog):
         bot.loop.create_task(
             self.build_rtfm_lookup_table(page_types=page_types))
 
-    def parse_object_inv(self, stream, url):
+    @staticmethod
+    def parse_object_inv(stream, url):
         # key: URL
         # n.b.: key doesn't have `discord` or `discord.ext.commands` namespaces
         result = {}
@@ -224,7 +225,8 @@ class Utility(commands.Cog):
         await self.uhh_rtfm_pls(ctx, "aiohttp", thing)
 
     @executor_function
-    def translate_text(self, destination, args: str):
+    @staticmethod
+    def translate_text(destination, args: str):
         translator = googletrans.Translator()
         return translator.translate(args, dest=destination)
 
