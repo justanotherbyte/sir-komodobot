@@ -183,7 +183,7 @@ async def on_message(message):
         return
     opt_in = await bot.pg.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', message.author.id)
     whether_to_do_nitro = opt_in['opt_in']
-    if whether_to_do_nitro != True:
+    if whether_to_do_nitro is True:
         return
 
     string = message.content

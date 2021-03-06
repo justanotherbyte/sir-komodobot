@@ -245,7 +245,7 @@ class Fun(commands.Cog):
             if emojis == []:
                 return await ctx.send("no emoji found")
             for i in emojis:
-                if i.animated == True:
+                if i.animated is True:
                     lists.append(f"{str(i)} `<a:{i.name}:{i.id}>`")
                 else:
                     lists.append(f"{str(i)} `<:{i.name}:{i.id}>`")
@@ -255,7 +255,7 @@ class Fun(commands.Cog):
                                            owner=ctx.author)
             return await interface.send_to(ctx)
         for i in self.bot.emojis:
-            if i.animated == True:
+            if i.animated is True:
                 lists.append(f"{str(i)} `<a:{i.name}:{i.id}>`")
             else:
                 lists.append(f"{str(i)} `<:{i.name}:{i.id}>`")
@@ -267,7 +267,7 @@ class Fun(commands.Cog):
     async def opt_in(self, ctx):
         opt_in = await self.bot.emotes.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', ctx.author.id)
         opt_in = opt_in['opt_in']
-        if opt_in == True:
+        if opt_in is True:
             await ctx.send("You Have Already opted-in to emotes")
         else:
             await self.bot.emotes.execute('UPDATE emotes set opt_in = TRUE WHERE member_id = $1', ctx.author.id)
@@ -277,7 +277,7 @@ class Fun(commands.Cog):
     async def opt_out(self, ctx):
         opt_in = await self.bot.emotes.fetchrow('SELECT opt_in from emotes WHERE member_id = $1', ctx.author.id)
         opt_in = opt_in['opt_in']
-        if opt_in == False:
+        if opt_in is False:
             await ctx.send("You Have Already opted out of emotes")
         else:
             await self.bot.emotes.execute('UPDATE emotes set opt_in = FALSE WHERE member_id = $1', ctx.author.id)
