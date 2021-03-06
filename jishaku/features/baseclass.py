@@ -76,7 +76,7 @@ class Feature(commands.Cog):
         for key, cmd in command_set:
             if cmd.parent and isinstance(cmd.parent, str):
                 if cmd.standalone_ok:
-                    cmd.parent = command_lookup.get(cmd.parent, None)
+                    cmd.parent = command_lookup.get(cmd.parent)
                 else:
                     try:
                         cmd.parent = command_lookup[cmd.parent]
